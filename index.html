@@ -1,0 +1,3182 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+  <meta name="bingbot" content="noindex, nofollow">
+  <title>SHAMIMA TANJIN — Creative Designer & Digital Content Creator | Official Portfolio</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            background: "#080b0e",
+            foreground: "#f3f4f6",
+            accent: {
+              DEFAULT: "#f59e0b",
+              light: "#fbbf24",
+              dark: "#d97706",
+            },
+            noir: {
+              950: "#050709",
+              900: "#080b0e",
+              850: "#0d1117",
+              800: "#12171f",
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    :root {
+      --bg-primary: #080b0e;
+      --accent-amber: #f59e0b;
+      --ease-fluid: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      background-color: var(--bg-primary);
+      color: #f8fafc;
+      scroll-behavior: smooth;
+      scroll-padding-top: 5.5rem;
+    }
+
+    section {
+      scroll-margin-top: 5.5rem;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: #f8fafc;
+      overflow-x: hidden;
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", sans-serif;
+    }
+
+    ::selection {
+      background: rgba(245, 158, 11, 0.35);
+      color: #ffffff;
+    }
+
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #080b0e;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 9999px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(245, 158, 11, 0.6);
+    }
+
+    .glass-panel {
+      background: rgba(13, 17, 23, 0.65);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      will-change: transform, opacity;
+      transform: translateZ(0);
+    }
+
+    .glass-panel-glow {
+      background: rgba(13, 17, 23, 0.75);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(245, 158, 11, 0.25);
+      box-shadow: 0 0 40px -10px rgba(245, 158, 11, 0.2);
+      will-change: transform, opacity;
+      transform: translateZ(0);
+    }
+
+    .canvas-vignette {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at center, transparent 45%, rgba(8, 11, 14, 0.45) 75%, rgba(8, 11, 14, 0.95) 100%);
+    }
+
+    .grain-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 99;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    /* 3D Perspective & Hover Tilts */
+    .perspective-container {
+      perspective: 1200px;
+    }
+
+    .tilt-card {
+      transition: transform 0.5s var(--ease-fluid), box-shadow 0.4s ease, border-color 0.4s ease;
+      transform-style: preserve-3d;
+      will-change: transform;
+    }
+
+    .tilt-card:hover {
+      transform: translateY(-8px) rotateX(2.5deg) rotateY(-1.5deg);
+      box-shadow: 0 0 35px rgba(245, 158, 11, 0.2);
+    }
+
+    /* Premium Scroll-Triggered Transitions */
+    .reveal-init {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s var(--ease-fluid), transform 0.8s var(--ease-fluid);
+      will-change: opacity, transform;
+    }
+
+    .reveal-init.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: opacity 0.8s var(--ease-fluid), transform 0.8s var(--ease-fluid);
+      will-change: opacity, transform;
+    }
+
+    .reveal-left.revealed {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(40px);
+      transition: opacity 0.8s var(--ease-fluid), transform 0.8s var(--ease-fluid);
+      will-change: opacity, transform;
+    }
+
+    .reveal-right.revealed {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .reveal-scale {
+      opacity: 0;
+      transform: scale(0.95) translateY(20px);
+      transition: opacity 0.8s var(--ease-fluid), transform 0.8s var(--ease-fluid);
+      will-change: opacity, transform;
+    }
+
+    .reveal-scale.revealed {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+
+    /* Staggered Delay Helpers */
+    .delay-100 {
+      transition-delay: 0.1s;
+    }
+
+    .delay-200 {
+      transition-delay: 0.2s;
+    }
+
+    .delay-300 {
+      transition-delay: 0.3s;
+    }
+
+    .delay-400 {
+      transition-delay: 0.4s;
+    }
+
+    .delay-500 {
+      transition-delay: 0.5s;
+    }
+
+    /* Animated Timeline Line Draw */
+    .timeline-line {
+      transform-origin: top;
+      transform: scaleY(0);
+      transition: transform 1.2s var(--ease-fluid);
+    }
+
+    .timeline-line.drawn {
+      transform: scaleY(1);
+    }
+
+    /* Accessibility: Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto !important;
+      }
+
+      .reveal-init,
+      .reveal-left,
+      .reveal-right,
+      .reveal-scale,
+      .timeline-line {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+    }
+
+    /* Portfolio Cards - Always explicitly visible and smoothly filterable */
+
+    /* Portfolio Cards - Always explicitly visible and smoothly filterable */
+    .portfolio-card {
+      opacity: 1 !important;
+      visibility: visible !important;
+      display: flex !important;
+      transform: scale(1) translateY(0) !important;
+      transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .portfolio-card.is-filtered-out {
+      display: none !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+    }
+  </style>
+  <script>
+    function handleImgFallback(img) {
+      if (!img) return;
+      if (!img.dataset.tryCount) img.dataset.tryCount = "0";
+      var count = parseInt(img.dataset.tryCount, 10);
+      var fallbacks = (img.dataset.fallbacks || "").split("|").map(function (s) { return s.trim(); }).filter(Boolean);
+      if (count < fallbacks.length) {
+        img.dataset.tryCount = (count + 1).toString();
+        img.src = fallbacks[count];
+      } else {
+        img.onerror = null;
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-[#080b0e] text-[#f8fafc] antialiased">
+  <!-- Subtle Grain Texture Overlay -->
+  <div class="grain-overlay"></div>
+
+  <!-- Custom Cursor Elements -->
+  <div id="cursor-dot"
+    class="fixed top-0 left-0 w-2 h-2 rounded-full bg-amber-400 pointer-events-none z-[9999] transition-transform duration-75 hidden md:block">
+  </div>
+  <div id="cursor-halo"
+    class="fixed top-0 left-0 w-8 h-8 rounded-full border border-amber-400/40 bg-amber-400/[0.06] pointer-events-none z-[9998] transition-all duration-300 ease-out hidden md:block">
+  </div>
+
+  <!-- ========================================================= -->
+  <!-- 0. NAVBAR                                                 -->
+  <!-- ========================================================= -->
+  <header
+    class="fixed top-0 inset-x-0 z-50 flex items-center justify-between px-4 sm:px-8 lg:px-12 py-4 transition-all duration-300">
+    <a href="#home" onclick="smoothNav(event, 'home')" class="flex items-center space-x-2.5 group cursor-pointer">
+      <div
+        class="w-9 h-9 rounded-xl bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center shadow-[0_0_20px_rgba(245,158,11,0.5)] group-hover:scale-105 transition-transform duration-300">
+        <span class="font-mono font-bold text-slate-950 text-base">ST</span>
+      </div>
+      <div class="flex flex-col">
+        <span class="text-sm font-bold tracking-tight text-white group-hover:text-amber-300 transition-colors">SHAMIMA
+          TANJIN</span>
+        <span class="text-[10px] font-mono tracking-widest text-amber-400/90 uppercase">Creative Designer</span>
+      </div>
+    </a>
+
+    <!-- Connected Navigation Links with Active Highlight Tracking -->
+    <nav class="hidden xl:flex items-center space-x-1 px-3 py-1.5 rounded-full glass-panel">
+      <a href="#home" onclick="smoothNav(event, 'home')" id="nav-home"
+        class="nav-item relative px-3 py-1.5 text-xs font-mono uppercase tracking-wider rounded-full transition-all text-amber-300 bg-amber-400/15 border border-amber-400/30 font-semibold">Home</a>
+      <a href="#about" onclick="smoothNav(event, 'about')" id="nav-about"
+        class="nav-item relative px-3 py-1.5 text-xs font-mono uppercase tracking-wider rounded-full transition-all text-neutral-300 hover:text-white">About</a>
+      <a href="#services" onclick="smoothNav(event, 'services')" id="nav-services"
+        class="nav-item relative px-3 py-1.5 text-xs font-mono uppercase tracking-wider rounded-full transition-all text-neutral-300 hover:text-white">Services</a>
+      <a href="#skills" onclick="smoothNav(event, 'skills')" id="nav-skills"
+        class="nav-item relative px-3 py-1.5 text-xs font-mono uppercase tracking-wider rounded-full transition-all text-neutral-300 hover:text-white">Skills</a>
+      <a href="#portfolio" onclick="smoothNav(event, 'portfolio')" id="nav-portfolio"
+        class="nav-item relative px-3 py-1.5 text-xs font-mono uppercase tracking-wider rounded-full transition-all text-neutral-300 hover:text-white">Portfolio</a>
+      <a href="#experience-timeline" onclick="smoothNav(event, 'experience-timeline')" id="nav-experience-timeline"
+        class="nav-item relative px-3 py-1.5 text-xs font-mono uppercase tracking-wider rounded-full transition-all text-neutral-300 hover:text-white">Experience</a>
+      <a href="#education" onclick="smoothNav(event, 'education')" id="nav-education"
+        class="nav-item relative px-3 py-1.5 text-xs font-mono uppercase tracking-wider rounded-full transition-all text-neutral-300 hover:text-white">Education</a>
+      <a href="#reviews" onclick="smoothNav(event, 'reviews')" id="nav-reviews"
+        class="nav-item relative px-3 py-1.5 text-xs font-mono uppercase tracking-wider rounded-full transition-all text-neutral-300 hover:text-white">Reviews</a>
+      <a href="#contact" onclick="smoothNav(event, 'contact')" id="nav-contact"
+        class="nav-item relative px-3 py-1.5 text-xs font-mono uppercase tracking-wider rounded-full transition-all text-neutral-300 hover:text-white">Contact</a>
+    </nav>
+
+    <div class="flex items-center space-x-3">
+      <div
+        class="hidden sm:flex items-center space-x-2 px-3 py-1.5 rounded-full glass-panel text-[11px] font-mono text-neutral-300">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span class="uppercase tracking-wider">5+ Years Experience</span>
+      </div>
+      <a href="mailto:shtanjin24@gmail.com"
+        class="inline-flex items-center space-x-1.5 px-4 py-2 rounded-full bg-amber-400 text-slate-950 text-xs font-semibold hover:bg-amber-300 transition-all shadow-[0_0_20px_rgba(245,158,11,0.4)] hover:scale-105 active:scale-95">
+        <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+        <span>Hire Me</span>
+      </a>
+      <button onclick="toggleMobileMenu()" class="xl:hidden p-2 rounded-xl glass-panel text-neutral-300">
+        <i data-lucide="menu" class="w-5 h-5"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div id="mobile-menu"
+    class="hidden fixed top-20 inset-x-4 p-6 glass-panel-glow rounded-3xl flex-col space-y-3 text-center z-50 xl:hidden border border-white/10 shadow-2xl">
+    <a href="#home" onclick="smoothNav(event, 'home')"
+      class="text-xs font-mono uppercase text-neutral-200 py-2 border-b border-white/5">Home</a>
+    <a href="#about" onclick="smoothNav(event, 'about')"
+      class="text-xs font-mono uppercase text-neutral-200 py-2 border-b border-white/5">About</a>
+    <a href="#services" onclick="smoothNav(event, 'services')"
+      class="text-xs font-mono uppercase text-neutral-200 py-2 border-b border-white/5">Services</a>
+    <a href="#skills" onclick="smoothNav(event, 'skills')"
+      class="text-xs font-mono uppercase text-neutral-200 py-2 border-b border-white/5">Skills</a>
+    <a href="#portfolio" onclick="smoothNav(event, 'portfolio')"
+      class="text-xs font-mono uppercase text-neutral-200 py-2 border-b border-white/5">Portfolio</a>
+    <a href="#experience-timeline" onclick="smoothNav(event, 'experience-timeline')"
+      class="text-xs font-mono uppercase text-neutral-200 py-2 border-b border-white/5">Experience</a>
+    <a href="#education" onclick="smoothNav(event, 'education')"
+      class="text-xs font-mono uppercase text-neutral-200 py-2 border-b border-white/5">Education</a>
+    <a href="#reviews" onclick="smoothNav(event, 'reviews')"
+      class="text-xs font-mono uppercase text-neutral-200 py-2 border-b border-white/5">Reviews</a>
+    <a href="#contact" onclick="smoothNav(event, 'contact')"
+      class="text-xs font-mono uppercase text-neutral-200 py-2">Contact</a>
+  </div>
+
+  <!-- ========================================================= -->
+  <!-- 1. HERO SECTION (500vh + Canvas + Parallax Text)          -->
+  <!-- ========================================================= -->
+  <section id="home" class="relative w-full h-[500vh] bg-[#080b0e]">
+    <div class="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
+      <canvas id="scrolly-canvas" class="w-full h-full block object-cover"></canvas>
+      <div class="canvas-vignette"></div>
+
+      <!-- Preloader -->
+      <div id="preloader"
+        class="absolute inset-0 bg-[#080b0e] z-30 flex flex-col items-center justify-center gap-4 transition-opacity duration-700">
+        <div class="w-10 h-10 border-2 border-amber-500/20 border-t-amber-400 rounded-full animate-spin"></div>
+        <div id="preloader-text" class="text-xs uppercase tracking-[0.25em] text-neutral-400 font-mono">
+          Buffering Shamima's Profile Sequence • 0%
+        </div>
+        <div class="w-48 h-[2px] bg-white/10 rounded-full overflow-hidden">
+          <div id="preloader-bar"
+            class="h-full bg-gradient-to-r from-amber-500 to-amber-300 transition-all duration-150 ease-out w-0"></div>
+        </div>
+      </div>
+
+      <!-- Frame HUD Telemetry -->
+      <div
+        class="absolute bottom-6 left-6 md:bottom-8 md:left-8 z-20 hidden sm:flex items-center space-x-3 pointer-events-auto">
+        <div
+          class="glass-panel px-3 py-1.5 rounded-full flex items-center space-x-2 text-[11px] font-mono text-neutral-400">
+          <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+          <span id="hud-frame" class="text-neutral-200">FRAME 00 / 74</span>
+          <span class="text-white/20">|</span>
+          <span id="hud-scrub">0% SCRUB</span>
+        </div>
+      </div>
+
+      <!-- ===================================================== -->
+      <!-- PARALLAX OVERLAYS WITH 3D DEPTH EFFECT                -->
+      <!-- ===================================================== -->
+      <div class="absolute inset-0 pointer-events-none z-10 flex flex-col justify-between p-6 sm:p-10 md:p-16 lg:p-20"
+        style="perspective: 1200px;">
+
+        <!-- SECTION 1: 0% SCROLL (Shamima Tanjin Hero with 3D Depth) -->
+        <div id="section-1"
+          class="absolute inset-0 flex flex-col items-center justify-center text-center px-4 transition-all duration-300">
+          <div
+            class="inline-flex items-center space-x-2 px-4 py-2 rounded-full glass-panel mb-6 border border-amber-500/40 text-amber-300 text-xs tracking-widest font-mono uppercase shadow-[0_0_25px_rgba(245,158,11,0.25)]">
+            <i data-lucide="sparkles" class="w-4 h-4 text-amber-400 animate-spin"></i>
+            <span class="font-semibold">5+ YEARS OF CREATIVE EXPERIENCE</span>
+          </div>
+
+          <h1
+            class="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-extrabold tracking-tight text-white mb-3 drop-shadow-[0_15px_45px_rgba(0,0,0,0.9)]">
+            SHAMIMA TANJIN
+          </h1>
+
+          <div class="text-sm sm:text-lg md:text-xl font-mono text-amber-400 font-medium tracking-wider uppercase mb-5">
+            Creative Designer <span class="text-white/30">|</span> Web Designer <span class="text-white/30">|</span>
+            Video Creator &amp; Editor
+          </div>
+
+          <p
+            class="text-lg sm:text-xl md:text-2xl text-neutral-200 font-medium tracking-tight max-w-2xl mb-4 leading-snug">
+            &ldquo;Turning Ideas Into Creative Digital Experiences.&rdquo;
+          </p>
+
+          <p class="text-xs sm:text-sm md:text-base text-neutral-400 font-light max-w-2xl leading-relaxed">
+            I am a creative professional with 5+ years of experience in Graphic Design, Web Design,
+            and Video Creation &amp; Editing. I transform creative ideas into visually stunning graphics,
+            modern websites, and engaging video content.
+          </p>
+
+          <div class="mt-10 flex flex-col items-center space-y-3 pointer-events-auto cursor-pointer"
+            onclick="smoothNav(null, 'about')">
+            <span class="text-[11px] font-mono tracking-[0.25em] text-neutral-400 uppercase">
+              Scroll to Scrub Profile Journey
+            </span>
+            <div class="w-6 h-10 rounded-full border border-white/20 flex items-start justify-center p-1.5 glass-panel">
+              <div class="w-1.5 h-2.5 rounded-full bg-amber-400 animate-bounce shadow-[0_0_8px_rgba(245,158,11,0.8)]">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 2: 30% SCROLL (Left Aligned) -->
+        <div id="section-2"
+          class="absolute inset-y-0 left-6 sm:left-12 md:left-20 lg:left-24 flex flex-col justify-center max-w-xl text-left pointer-events-none opacity-0 translate-y-20 transition-all duration-300">
+          <div class="glass-panel-glow p-8 sm:p-10 rounded-3xl border border-white/10 backdrop-blur-2xl">
+            <div class="flex items-center space-x-2 text-amber-400 text-xs font-mono tracking-widest uppercase mb-3">
+              <i data-lucide="palette" class="w-4 h-4"></i>
+              <span>01 • Creative Mastery</span>
+            </div>
+
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight leading-[1.15] mb-5">
+              Turning Ideas Into <br />
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-200 to-amber-500">
+                Digital Experiences.
+              </span>
+            </h2>
+
+            <p class="text-neutral-300 text-sm sm:text-base leading-relaxed font-light mb-6">
+              With 5+ years of craft, I bridge the worlds of high-impact visual design,
+              sleek responsive web interfaces, and cinematic video storytelling to
+              elevate brands and captivate audiences.
+            </p>
+
+            <div class="flex flex-wrap gap-2 pointer-events-auto">
+              <span
+                class="px-3.5 py-1 rounded-full text-xs font-mono bg-white/[0.04] text-neutral-300 border border-white/10">Graphic
+                Design</span>
+              <span
+                class="px-3.5 py-1 rounded-full text-xs font-mono bg-white/[0.04] text-neutral-300 border border-white/10">Web
+                Design</span>
+              <span
+                class="px-3.5 py-1 rounded-full text-xs font-mono bg-white/[0.04] text-neutral-300 border border-white/10">Video
+                Creation &amp; Editing</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 3: 60% SCROLL (Right Aligned) -->
+        <div id="section-3"
+          class="absolute inset-y-0 right-6 sm:right-12 md:right-20 lg:right-24 flex flex-col justify-center max-w-xl text-right pointer-events-none ml-auto opacity-0 translate-y-20 transition-all duration-300">
+          <div class="glass-panel-glow p-8 sm:p-10 rounded-3xl border border-white/10 backdrop-blur-2xl text-left">
+            <div
+              class="flex items-center space-x-2 text-amber-400 text-xs font-mono tracking-widest uppercase mb-3 justify-end">
+              <span>02 • Multi-Disciplinary</span>
+              <i data-lucide="award" class="w-4 h-4"></i>
+            </div>
+
+            <h2
+              class="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight leading-[1.15] mb-5 text-right">
+              5+ Years of <br />
+              <span class="text-transparent bg-clip-text bg-gradient-to-l from-amber-400 via-amber-200 to-amber-500">
+                Creative Excellence.
+              </span>
+            </h2>
+
+            <p class="text-neutral-300 text-sm sm:text-base leading-relaxed font-light mb-6 text-right">
+              From brand identity and marketing collateral to interactive responsive websites and
+              high-retention social videos, every deliverable is engineered with precision,
+              aesthetic harmony, and purpose.
+            </p>
+
+            <div class="grid grid-cols-3 gap-3 text-center">
+              <div class="p-3 rounded-2xl bg-white/[0.02] border border-white/5">
+                <div class="text-amber-400 text-lg font-bold font-mono">5+ Yrs</div>
+                <div class="text-[11px] text-neutral-400">Experience</div>
+              </div>
+              <div class="p-3 rounded-2xl bg-white/[0.02] border border-white/5">
+                <div class="text-amber-400 text-lg font-bold font-mono">3 Core</div>
+                <div class="text-[11px] text-neutral-400">Disciplines</div>
+              </div>
+              <div class="p-3 rounded-2xl bg-white/[0.02] border border-white/5">
+                <div class="text-amber-400 text-lg font-bold font-mono">100%</div>
+                <div class="text-[11px] text-neutral-400">Dedication</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 4: 90% SCROLL (Transition cue) -->
+        <div id="section-4"
+          class="absolute bottom-12 inset-x-0 flex flex-col items-center justify-center text-center pointer-events-auto opacity-0 translate-y-10 transition-all duration-300">
+          <a href="#about" onclick="smoothNav(event, 'about')"
+            class="glass-panel px-5 py-2.5 rounded-full border border-amber-400/30 flex items-center space-x-3 text-xs uppercase font-mono tracking-widest text-neutral-200 shadow-[0_0_20px_rgba(245,158,11,0.25)] animate-bounce">
+            <span>Discover Shamima's Profile</span>
+            <i data-lucide="arrow-down" class="w-4 h-4 text-amber-400"></i>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- 2. ABOUT ME SECTION (Slide-up Reveal Animation)           -->
+  <!-- ========================================================= -->
+  <section id="about"
+    class="relative w-full py-28 px-6 sm:px-10 md:px-16 lg:px-24 bg-[#080b0e] z-20 border-t border-white/5 overflow-hidden">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+
+        <!-- Left Column -->
+        <div class="lg:col-span-6 reveal-init">
+          <div
+            class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full glass-panel text-amber-400 text-xs font-mono tracking-widest uppercase mb-6">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+            <span>About Shamima Tanjin</span>
+          </div>
+
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-[1.15] mb-6">
+            Turning Creative Vision Into <br />
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-200 to-amber-500">
+              Impactful Digital Realities.
+            </span>
+          </h2>
+
+          <p
+            class="text-neutral-200 text-base sm:text-lg leading-relaxed mb-6 font-normal border-l-2 border-amber-400/80 pl-4 bg-amber-400/[0.02] py-2 rounded-r-lg">
+            &ldquo;I am Shamima Tanjin, a creative designer and digital professional with 5+ years of experience in
+            graphic design, web design, video creation, and editing. I also have experience in computer science
+            instruction, digital marketing, and creating engaging digital content. I enjoy transforming creative ideas
+            into visually appealing and meaningful digital experiences.&rdquo;
+          </p>
+
+          <div
+            class="glass-panel p-6 rounded-3xl border border-amber-400/20 shadow-[0_0_30px_rgba(245,158,11,0.08)] flex flex-wrap items-center justify-between gap-4 mb-8">
+            <div class="flex items-center space-x-4">
+              <div
+                class="w-14 h-14 rounded-2xl bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-400 font-bold font-mono text-2xl shadow-[0_0_15px_rgba(245,158,11,0.3)]">
+                5+
+              </div>
+              <div>
+                <div class="text-base font-bold text-white">Years of Creative Experience</div>
+                <div class="text-xs text-neutral-400 font-mono">Creative Designer &amp; Digital Content Creator</div>
+              </div>
+            </div>
+
+            <div
+              class="flex items-center space-x-2 text-xs font-mono text-emerald-400 bg-emerald-400/10 px-3 py-1.5 rounded-full border border-emerald-400/20">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span>Available for Client Projects</span>
+            </div>
+          </div>
+
+          <!-- Personal Interests -->
+          <div class="pt-2">
+            <span class="text-xs font-mono text-amber-400 uppercase tracking-wider block mb-3">
+              Personal Interests &amp; Passions
+            </span>
+            <div class="flex flex-wrap gap-2.5">
+              <div
+                class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full glass-panel text-xs font-mono text-neutral-300 border border-white/10">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-400"></i>
+                <span>Exploring New Things</span>
+              </div>
+              <div
+                class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full glass-panel text-xs font-mono text-neutral-300 border border-white/10">
+                <i data-lucide="newspaper" class="w-3.5 h-3.5 text-amber-400"></i>
+                <span>Reading Newspapers</span>
+              </div>
+              <div
+                class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full glass-panel text-xs font-mono text-neutral-300 border border-white/10">
+                <i data-lucide="globe" class="w-3.5 h-3.5 text-amber-400"></i>
+                <span>Web Browsing</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column (5 Core Specializations) -->
+        <div class="lg:col-span-6 flex flex-col space-y-4">
+          <div class="text-xs font-mono uppercase tracking-widest text-neutral-400 mb-1 reveal-init">
+            Core Specializations
+          </div>
+
+          <div
+            class="glass-panel p-5 rounded-3xl border border-white/5 hover:border-amber-400/40 transition-all duration-300 flex items-start space-x-4 group tilt-card reveal-init delay-100 cursor-pointer">
+            <div
+              class="w-11 h-11 rounded-2xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-amber-400 flex-shrink-0 group-hover:scale-110 group-hover:bg-amber-400/10 transition-transform">
+              <i data-lucide="palette" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="text-base font-bold text-white mb-1 group-hover:text-amber-200 transition-colors">Graphic
+                Design</h3>
+              <p class="text-neutral-400 text-xs sm:text-sm leading-relaxed font-light">Creating brand identities,
+                social media creatives, advertising posters, commercial leaflets, and packaging designs.</p>
+            </div>
+          </div>
+
+          <div
+            class="glass-panel p-5 rounded-3xl border border-white/5 hover:border-amber-400/40 transition-all duration-300 flex items-start space-x-4 group tilt-card reveal-init delay-150 cursor-pointer">
+            <div
+              class="w-11 h-11 rounded-2xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-amber-400 flex-shrink-0 group-hover:scale-110 group-hover:bg-amber-400/10 transition-transform">
+              <i data-lucide="globe" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="text-base font-bold text-white mb-1 group-hover:text-amber-200 transition-colors">Web Design
+              </h3>
+              <p class="text-neutral-400 text-xs sm:text-sm leading-relaxed font-light">Designing responsive websites,
+                landing pages, and intuitive user interfaces built with HTML, CSS, JavaScript, and modern tools.</p>
+            </div>
+          </div>
+
+          <div
+            class="glass-panel p-5 rounded-3xl border border-white/5 hover:border-amber-400/40 transition-all duration-300 flex items-start space-x-4 group tilt-card reveal-init delay-200 cursor-pointer">
+            <div
+              class="w-11 h-11 rounded-2xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-amber-400 flex-shrink-0 group-hover:scale-110 group-hover:bg-amber-400/10 transition-transform">
+              <i data-lucide="film" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="text-base font-bold text-white mb-1 group-hover:text-amber-200 transition-colors">Video
+                Creation &amp; Editing</h3>
+              <p class="text-neutral-400 text-xs sm:text-sm leading-relaxed font-light">Producing promotional video
+                edits, social media reels, YouTube content, color grading, and dynamic visual storytelling.</p>
+            </div>
+          </div>
+
+          <div
+            class="glass-panel p-5 rounded-3xl border border-white/5 hover:border-amber-400/40 transition-all duration-300 flex items-start space-x-4 group tilt-card reveal-init delay-250 cursor-pointer">
+            <div
+              class="w-11 h-11 rounded-2xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-amber-400 flex-shrink-0 group-hover:scale-110 group-hover:bg-amber-400/10 transition-transform">
+              <i data-lucide="trending-up" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="text-base font-bold text-white mb-1 group-hover:text-amber-200 transition-colors">Digital
+                Marketing</h3>
+              <p class="text-neutral-400 text-xs sm:text-sm leading-relaxed font-light">Executing SEO strategies, social
+                media marketing campaigns, lead generation, and high-impact digital promotional graphics.</p>
+            </div>
+          </div>
+
+          <div
+            class="glass-panel p-5 rounded-3xl border border-white/5 hover:border-amber-400/40 transition-all duration-300 flex items-start space-x-4 group tilt-card reveal-init delay-300 cursor-pointer">
+            <div
+              class="w-11 h-11 rounded-2xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-amber-400 flex-shrink-0 group-hover:scale-110 group-hover:bg-amber-400/10 transition-transform">
+              <i data-lucide="laptop" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="text-base font-bold text-white mb-1 group-hover:text-amber-200 transition-colors">Computer
+                Science &amp; IT</h3>
+              <p class="text-neutral-400 text-xs sm:text-sm leading-relaxed font-light">Instructional background in
+                computer fundamentals, programming languages, and practical digital literacy.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- 3. SERVICES SECTION (Staggered 3D Tilt Card Reveal)       -->
+  <!-- ========================================================= -->
+  <section id="services"
+    class="relative w-full py-28 px-6 sm:px-10 md:px-16 lg:px-24 bg-[#080b0e] z-20 border-t border-white/5 overflow-hidden perspective-container">
+    <div class="max-w-7xl mx-auto">
+      <div
+        class="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-8 border-b border-white/10 gap-6 reveal-init">
+        <div>
+          <div
+            class="inline-flex items-center space-x-2 px-3 py-1 rounded-full glass-panel text-amber-400 text-xs font-mono tracking-widest uppercase mb-4">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+            <span>Services &amp; Capabilities</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-[1.15]">
+            Tailored Solutions For <br />
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-200 to-amber-500">
+              Ambitious Brands &amp; Creators.
+            </span>
+          </h2>
+        </div>
+
+        <p class="max-w-md text-neutral-400 text-sm sm:text-base font-light leading-relaxed">
+          Delivering high-craft creative services across graphic identity, responsive
+          web development, and dynamic video production.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+        <!-- Graphic Design Card -->
+        <div
+          class="group relative rounded-3xl p-8 glass-panel border border-white/10 hover:border-amber-400/40 transition-all duration-500 flex flex-col justify-between overflow-hidden hover:shadow-[0_0_35px_rgba(245,158,11,0.2)] tilt-card reveal-init delay-100 cursor-pointer">
+          <div class="relative z-10">
+            <div
+              class="w-14 h-14 rounded-2xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-amber-400 mb-6 group-hover:scale-110 group-hover:bg-amber-400/10 transition-transform">
+              <i data-lucide="palette" class="w-7 h-7"></i>
+            </div>
+            <div class="text-xs font-mono text-amber-400 uppercase tracking-wider mb-1">Visual Identity &amp; Print
+              Media</div>
+            <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-amber-200 transition-colors">Graphic Design
+            </h3>
+            <p class="text-neutral-400 text-xs sm:text-sm leading-relaxed font-light mb-8">
+              Comprehensive visual design solutions tailored to articulate your brand ethos with unmistakable presence
+              and commercial impact.
+            </p>
+            <div class="space-y-2.5 pt-4 border-t border-white/5 mb-8">
+              <div class="flex items-center space-x-2.5 text-xs sm:text-sm text-neutral-300"><i
+                  data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 flex-shrink-0"></i><span>Logo Design</span>
+              </div>
+              <div class="flex items-center space-x-2.5 text-xs sm:text-sm text-neutral-300"><i
+                  data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 flex-shrink-0"></i><span>Branding &amp;
+                  Brand Identity</span></div>
+              <div class="flex items-center space-x-2.5 text-xs sm:text-sm text-neutral-300"><i
+                  data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 flex-shrink-0"></i><span>Social Media
+                  Design</span></div>
+              <div class="flex items-center space-x-2.5 text-xs sm:text-sm text-neutral-300"><i
+                  data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 flex-shrink-0"></i><span>Posters &amp;
+                  Banners</span></div>
+              <div class="flex items-center space-x-2.5 text-xs sm:text-sm text-neutral-300"><i
+                  data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 flex-shrink-0"></i><span>Flyers &amp;
+                  Business Cards</span></div>
+              <div class="flex items-center space-x-2.5 text-xs sm:text-sm text-neutral-300"><i
+                  data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 flex-shrink-0"></i><span>Marketing
+                  Creatives</span></div>
+            </div>
+          </div>
+          <div class="relative z-10 pt-4 border-t border-white/5">
+            <a href="mailto:shtanjin24@gmail.com"
+              class="inline-flex items-center space-x-2 text-xs font-mono font-semibold text-amber-400 hover:text-amber-300">
+              <span>Request Service Consultation</span>
+              <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Web Design Card -->
+        <div
+          class="group relative rounded-3xl p-8 glass-panel border border-white/10 hover:border-amber-400/40 transition-all duration-500 flex flex-col justify-between overflow-hidden hover:shadow-[0_0_35px_rgba(245,158,11,0.2)] tilt-card reveal-init delay-200 cursor-pointer">
+          <div class="relative z-10">
+            <div
+              class="w-14 h-14 rounded-2xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-amber-400 mb-6 group-hover:scale-110 group-hover:bg-amber-400/10 transition-transform">
+              <i data-lucide="globe" class="w-7 h-7"></i>
+            </div>
+            <div class="text-xs font-mono text-amber-400 uppercase tracking-wider mb-1">Responsive UI &amp; Interactive
+              Web</div>
+            <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-amber-200 transition-colors">Web Design</h3>
+            <p class="text-neutral-400 text-xs sm:text-sm leading-relaxed font-light mb-8">
+              Modern, user-centric web interfaces engineered for optimal responsiveness, visual elegance, and intuitive
+              digital interactions.
+            </p>
+            <div class="space-y-2.5 pt-4 border-t border-white/5 mb-8">
+              <div class="flex items-center space-x-2.5 text-xs sm:text-sm text-neutral-300"><i
+                  data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 flex-shrink-0"></i><span>Website
+                  Design</span></div>
+              <div class="flex items-center space-x-2.5 text-xs sm:text-sm text-neutral-300"><i
+                  data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 flex-shrink-0"></i><span>Landing Page
+                  Design</span></div>
+              <div class="flex items-center space-x-2.5 text-xs sm:text-sm text-neutral-300"><i
+                  data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 flex-shrink-0"></i><span>UI Design</span>
+              </div>
+              <div class="flex items-center space-x-2.5 text-xs sm:text-sm text-neutral-300"><i
+                  data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 flex-shrink-0"></i><span>Responsive Website
+                  Design</span></div>
+              <div class="flex items-center space-x-2.5 text-xs sm:text-sm text-neutral-300"><i
+                  data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 flex-shrink-0"></i><span>Portfolio Website
+                  Design</span></div>
+              <div class="flex items-center space-x-2.5 text-xs sm:text-sm text-neutral-300"><i
+                  data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 flex-shrink-0"></i><span>HTML, CSS &amp;
+                  JavaScript Projects</span></div>
+            </div>
+          </div>
+          <div class="relative z-10 pt-4 border-t border-white/5">
+            <a href="mailto:shtanjin24@gmail.com"
+              class="inline-flex items-center space-x-2 text-xs font-mono font-semibold text-amber-400 hover:text-amber-300">
+              <span>Request Service Consultation</span>
+              <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Video Editing Card -->
+        <div
+          class="group relative rounded-3xl p-8 glass-panel border border-white/10 hover:border-amber-400/40 transition-all duration-500 flex flex-col justify-between overflow-hidden hover:shadow-[0_0_35px_rgba(245,158,11,0.2)] tilt-card reveal-init delay-300 cursor-pointer">
+          <div class="relative z-10">
+            <div
+              class="w-14 h-14 rounded-2xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-amber-400 mb-6 group-hover:scale-110 group-hover:bg-amber-400/10 transition-transform">
+              <i data-lucide="film" class="w-7 h-7"></i>
+            </div>
+            <div class="text-xs font-mono text-amber-400 uppercase tracking-wider mb-1">Cinematic &amp; Social Content
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-amber-200 transition-colors">Video Creation
+              &amp; Editing</h3>
+            <p class="text-neutral-400 text-xs sm:text-sm leading-relaxed font-light mb-8">
+              High-retention storytelling, rhythmic cuts, and dynamic motion graphics that keep viewers glued across
+              digital platforms.
+            </p>
+            <div class="space-y-2.5 pt-4 border-t border-white/5 mb-8">
+              <div class="flex items-center space-x-2.5 text-xs sm:text-sm text-neutral-300"><i
+                  data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 flex-shrink-0"></i><span>Professional Video
+                  Editing</span></div>
+              <div class="flex items-center space-x-2.5 text-xs sm:text-sm text-neutral-300"><i
+                  data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 flex-shrink-0"></i><span>YouTube
+                  Videos</span></div>
+              <div class="flex items-center space-x-2.5 text-xs sm:text-sm text-neutral-300"><i
+                  data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 flex-shrink-0"></i><span>Instagram Reels
+                  &amp; YouTube Shorts</span></div>
+              <div class="flex items-center space-x-2.5 text-xs sm:text-sm text-neutral-300"><i
+                  data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 flex-shrink-0"></i><span>Promotional
+                  Videos</span></div>
+              <div class="flex items-center space-x-2.5 text-xs sm:text-sm text-neutral-300"><i
+                  data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 flex-shrink-0"></i><span>Cinematic
+                  Editing</span></div>
+              <div class="flex items-center space-x-2.5 text-xs sm:text-sm text-neutral-300"><i
+                  data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 flex-shrink-0"></i><span>Motion
+                  Graphics</span></div>
+            </div>
+          </div>
+          <div class="relative z-10 pt-4 border-t border-white/5">
+            <a href="mailto:shtanjin24@gmail.com"
+              class="inline-flex items-center space-x-2 text-xs font-mono font-semibold text-amber-400 hover:text-amber-300">
+              <span>Request Service Consultation</span>
+              <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- 4. SKILLS SECTION (Progress Indicators & Staggered Reveal)-->
+  <!-- ========================================================= -->
+  <section id="skills"
+    class="relative w-full py-28 px-6 sm:px-10 md:px-16 lg:px-24 bg-[#080b0e] z-20 border-t border-white/5 overflow-hidden">
+    <div class="max-w-7xl mx-auto">
+      <div
+        class="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-8 border-b border-white/10 gap-6 reveal-init">
+        <div>
+          <div
+            class="inline-flex items-center space-x-2 px-3 py-1 rounded-full glass-panel text-amber-400 text-xs font-mono tracking-widest uppercase mb-4">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+            <span>Competencies &amp; Toolset</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-[1.15]">
+            Core Skills &amp; <br />
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-200 to-amber-500">
+              Software Arsenal.
+            </span>
+          </h2>
+        </div>
+
+        <p class="max-w-md text-neutral-400 text-sm sm:text-base font-light leading-relaxed">
+          Multi-disciplinary creative toolkit refined over 5+ years of delivering
+          commercial branding, responsive web layouts, and cinematic digital content.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- 1. Graphic Design Skills -->
+        <div
+          class="glass-panel p-7 rounded-3xl border border-white/10 hover:border-amber-400/40 transition-all duration-300 flex flex-col justify-between reveal-init delay-100 tilt-card cursor-pointer">
+          <div>
+            <div class="flex items-center space-x-3 mb-6">
+              <div
+                class="w-10 h-10 rounded-xl bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-400">
+                <i data-lucide="palette" class="w-5 h-5"></i>
+              </div>
+              <h3 class="text-lg font-bold text-white">Graphic Design</h3>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-3 py-1.5 rounded-full text-xs font-mono bg-white/[0.04] text-neutral-200 border border-white/10 hover:border-amber-400/40 hover:text-amber-300 transition-colors">Adobe
+                Photoshop</span>
+              <span
+                class="px-3 py-1.5 rounded-full text-xs font-mono bg-white/[0.04] text-neutral-200 border border-white/10 hover:border-amber-400/40 hover:text-amber-300 transition-colors">Adobe
+                Illustrator</span>
+              <span
+                class="px-3 py-1.5 rounded-full text-xs font-mono bg-white/[0.04] text-neutral-200 border border-white/10 hover:border-amber-400/40 hover:text-amber-300 transition-colors">Photo
+                Editing</span>
+              <span
+                class="px-3 py-1.5 rounded-full text-xs font-mono bg-white/[0.04] text-neutral-200 border border-white/10 hover:border-amber-400/40 hover:text-amber-300 transition-colors">Graphic
+                Design</span>
+              <span
+                class="px-3 py-1.5 rounded-full text-xs font-mono bg-white/[0.04] text-neutral-200 border border-white/10 hover:border-amber-400/40 hover:text-amber-300 transition-colors">Branding</span>
+              <span
+                class="px-3 py-1.5 rounded-full text-xs font-mono bg-white/[0.04] text-neutral-200 border border-white/10 hover:border-amber-400/40 hover:text-amber-300 transition-colors">Social
+                Media Design</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Video Creation & Editing Skills -->
+        <div
+          class="glass-panel p-7 rounded-3xl border border-white/10 hover:border-amber-400/40 transition-all duration-300 flex flex-col justify-between reveal-init delay-150 tilt-card cursor-pointer">
+          <div>
+            <div class="flex items-center space-x-3 mb-6">
+              <div
+                class="w-10 h-10 rounded-xl bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-400">
+                <i data-lucide="film" class="w-5 h-5"></i>
+              </div>
+              <h3 class="text-lg font-bold text-white">Video Creation &amp; Editing</h3>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-3 py-1.5 rounded-full text-xs font-mono bg-white/[0.04] text-neutral-200 border border-white/10 hover:border-amber-400/40 hover:text-amber-300 transition-colors">Adobe
+                Premiere Pro</span>
+              <span
+                class="px-3 py-1.5 rounded-full text-xs font-mono bg-white/[0.04] text-neutral-200 border border-white/10 hover:border-amber-400/40 hover:text-amber-300 transition-colors">Video
+                Editing</span>
+              <span
+                class="px-3 py-1.5 rounded-full text-xs font-mono bg-white/[0.04] text-neutral-200 border border-white/10 hover:border-amber-400/40 hover:text-amber-300 transition-colors">Video
+                Content Creation</span>
+              <span
+                class="px-3 py-1.5 rounded-full text-xs font-mono bg-white/[0.04] text-neutral-200 border border-white/10 hover:border-amber-400/40 hover:text-amber-300 transition-colors">Visual
+                Storytelling</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Web Design & Development Skills -->
+        <div
+          class="glass-panel p-7 rounded-3xl border border-white/10 hover:border-amber-400/40 transition-all duration-300 flex flex-col justify-between reveal-init delay-200 tilt-card cursor-pointer">
+          <div>
+            <div class="flex items-center space-x-3 mb-6">
+              <div
+                class="w-10 h-10 rounded-xl bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-400">
+                <i data-lucide="globe" class="w-5 h-5"></i>
+              </div>
+              <h3 class="text-lg font-bold text-white">Web Design &amp; Development</h3>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-3 py-1.5 rounded-full text-xs font-mono bg-white/[0.04] text-neutral-200 border border-white/10 hover:border-amber-400/40 hover:text-amber-300 transition-colors">HTML</span>
+              <span
+                class="px-3 py-1.5 rounded-full text-xs font-mono bg-white/[0.04] text-neutral-200 border border-white/10 hover:border-amber-400/40 hover:text-amber-300 transition-colors">CSS</span>
+              <span
+                class="px-3 py-1.5 rounded-full text-xs font-mono bg-white/[0.04] text-neutral-200 border border-white/10 hover:border-amber-400/40 hover:text-amber-300 transition-colors">JavaScript</span>
+              <span
+                class="px-3 py-1.5 rounded-full text-xs font-mono bg-white/[0.04] text-neutral-200 border border-white/10 hover:border-amber-400/40 hover:text-amber-300 transition-colors">PHP
+                (Basic)</span>
+              <span
+                class="px-3 py-1.5 rounded-full text-xs font-mono bg-white/[0.04] text-neutral-200 border border-white/10 hover:border-amber-400/40 hover:text-amber-300 transition-colors">C</span>
+              <span
+                class="px-3 py-1.5 rounded-full text-xs font-mono bg-white/[0.04] text-neutral-200 border border-white/10 hover:border-amber-400/40 hover:text-amber-300 transition-colors">C++</span>
+              <span
+                class="px-3 py-1.5 rounded-full text-xs font-mono bg-white/[0.04] text-neutral-200 border border-white/10 hover:border-amber-400/40 hover:text-amber-300 transition-colors">SQL</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Digital Marketing Skills -->
+        <div
+          class="glass-panel p-7 rounded-3xl border border-white/10 hover:border-amber-400/40 transition-all duration-300 flex flex-col justify-between reveal-init delay-250 tilt-card cursor-pointer">
+          <div>
+            <div class="flex items-center space-x-3 mb-6">
+              <div
+                class="w-10 h-10 rounded-xl bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-400">
+                <i data-lucide="trending-up" class="w-5 h-5"></i>
+              </div>
+              <h3 class="text-lg font-bold text-white">Digital Marketing</h3>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-3 py-1.5 rounded-full text-xs font-mono bg-white/[0.04] text-neutral-200 border border-white/10 hover:border-amber-400/40 hover:text-amber-300 transition-colors">SEO</span>
+              <span
+                class="px-3 py-1.5 rounded-full text-xs font-mono bg-white/[0.04] text-neutral-200 border border-white/10 hover:border-amber-400/40 hover:text-amber-300 transition-colors">Social
+                Media Marketing (SMM)</span>
+              <span
+                class="px-3 py-1.5 rounded-full text-xs font-mono bg-white/[0.04] text-neutral-200 border border-white/10 hover:border-amber-400/40 hover:text-amber-300 transition-colors">Profile
+                Backlink</span>
+              <span
+                class="px-3 py-1.5 rounded-full text-xs font-mono bg-white/[0.04] text-neutral-200 border border-white/10 hover:border-amber-400/40 hover:text-amber-300 transition-colors">Lead
+                Generation</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Microsoft Office Skills -->
+        <div
+          class="glass-panel p-7 rounded-3xl border border-white/10 hover:border-amber-400/40 transition-all duration-300 flex flex-col justify-between reveal-init delay-300 tilt-card cursor-pointer">
+          <div>
+            <div class="flex items-center space-x-3 mb-6">
+              <div
+                class="w-10 h-10 rounded-xl bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-400">
+                <i data-lucide="laptop" class="w-5 h-5"></i>
+              </div>
+              <h3 class="text-lg font-bold text-white">Microsoft Office</h3>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-3 py-1.5 rounded-full text-xs font-mono bg-white/[0.04] text-neutral-200 border border-white/10 hover:border-amber-400/40 hover:text-amber-300 transition-colors">MS
+                Word</span>
+              <span
+                class="px-3 py-1.5 rounded-full text-xs font-mono bg-white/[0.04] text-neutral-200 border border-white/10 hover:border-amber-400/40 hover:text-amber-300 transition-colors">MS
+                Excel</span>
+              <span
+                class="px-3 py-1.5 rounded-full text-xs font-mono bg-white/[0.04] text-neutral-200 border border-white/10 hover:border-amber-400/40 hover:text-amber-300 transition-colors">MS
+                Access</span>
+              <span
+                class="px-3 py-1.5 rounded-full text-xs font-mono bg-white/[0.04] text-neutral-200 border border-white/10 hover:border-amber-400/40 hover:text-amber-300 transition-colors">MS
+                PowerPoint</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Professional Skills -->
+        <div
+          class="glass-panel p-7 rounded-3xl border border-white/10 hover:border-amber-400/40 transition-all duration-300 flex flex-col justify-between reveal-init delay-350 tilt-card cursor-pointer">
+          <div>
+            <div class="flex items-center space-x-3 mb-6">
+              <div
+                class="w-10 h-10 rounded-xl bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-400">
+                <i data-lucide="check-square" class="w-5 h-5"></i>
+              </div>
+              <h3 class="text-lg font-bold text-white">Professional Skills</h3>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-3 py-1.5 rounded-full text-xs font-mono bg-white/[0.04] text-neutral-200 border border-white/10 hover:border-amber-400/40 hover:text-amber-300 transition-colors">Time
+                Management</span>
+              <span
+                class="px-3 py-1.5 rounded-full text-xs font-mono bg-white/[0.04] text-neutral-200 border border-white/10 hover:border-amber-400/40 hover:text-amber-300 transition-colors">Presentation
+                Skills</span>
+              <span
+                class="px-3 py-1.5 rounded-full text-xs font-mono bg-white/[0.04] text-neutral-200 border border-white/10 hover:border-amber-400/40 hover:text-amber-300 transition-colors">Communication
+                Skills</span>
+              <span
+                class="px-3 py-1.5 rounded-full text-xs font-mono bg-white/[0.04] text-neutral-200 border border-white/10 hover:border-amber-400/40 hover:text-amber-300 transition-colors">Teaching
+                Skills</span>
+              <span
+                class="px-3 py-1.5 rounded-full text-xs font-mono bg-white/[0.04] text-neutral-200 border border-white/10 hover:border-amber-400/40 hover:text-amber-300 transition-colors">Problem-Solving</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- 5. PORTFOLIO SHOWCASE SECTION (Scale-up & Image Reveal)   -->
+  <!-- ========================================================= -->
+  <section id="portfolio"
+    class="relative w-full py-28 px-6 sm:px-10 md:px-16 lg:px-24 bg-[#080b0e] z-20 border-t border-white/5 overflow-hidden">
+    <div class="max-w-7xl mx-auto">
+      <div
+        class="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-8 border-b border-white/10 gap-6 reveal-init">
+        <div>
+          <div
+            class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full glass-panel text-amber-400 text-xs font-mono tracking-widest uppercase mb-4">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+            <span>Portfolio – Social Media Design &amp; Promotional Posters</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-[1.15]">
+            Curated Showcase of <br />
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-200 to-amber-500">
+              Social Media Creatives.
+            </span>
+          </h2>
+        </div>
+
+        <p class="max-w-md text-neutral-400 text-sm sm:text-base font-light leading-relaxed">
+          High-converting social media creatives, restaurant campaigns, promotional posters,
+          and advertising designs created for commercial brands and food establishments.
+        </p>
+      </div>
+
+      <!-- Filter Buttons with Smooth Transitions -->
+      <div class="flex flex-wrap items-center gap-3 mb-12 reveal-init">
+        <button onclick="filterPortfolio('all')" id="btn-filter-all"
+          class="px-5 py-2.5 rounded-full text-xs font-mono bg-amber-400 text-slate-950 font-semibold shadow-[0_0_20px_rgba(245,158,11,0.4)] scale-105 transition-all">All
+          Designs (10)</button>
+        <button onclick="filterPortfolio('social')" id="btn-filter-social"
+          class="px-5 py-2.5 rounded-full text-xs font-mono glass-panel text-neutral-300 hover:text-white transition-all">Social
+          Media Posts</button>
+        <button onclick="filterPortfolio('promo')" id="btn-filter-promo"
+          class="px-5 py-2.5 rounded-full text-xs font-mono glass-panel text-neutral-300 hover:text-white transition-all">Promotional
+          Posters</button>
+        <button onclick="filterPortfolio('campaign')" id="btn-filter-campaign"
+          class="px-5 py-2.5 rounded-full text-xs font-mono glass-panel text-neutral-300 hover:text-white transition-all">Campaign
+          Ads</button>
+      </div>
+
+      <!-- Grid of 10 Social Media Design Cards with Scale-up Reveal -->
+      <div id="portfolio-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+        <!-- Design 01: 5th Anniversary Festival Campaign -->
+        <div
+          class="portfolio-card graphic promo campaign group relative rounded-3xl p-6 sm:p-8 glass-panel border border-white/10 hover:border-amber-400/40 transition-all duration-300 flex flex-col justify-between overflow-hidden hover:shadow-[0_0_35px_rgba(245,158,11,0.2)] cursor-pointer"
+          onclick="openLightbox(0)">
+          <div class="relative z-10">
+            <div class="flex items-start justify-between mb-4">
+              <div>
+                <div class="text-xs font-mono text-amber-400 tracking-wider uppercase mb-1">Campaign Design • Food's
+                  Forest (Restaurant)</div>
+                <h3 class="text-xl sm:text-2xl font-bold text-white group-hover:text-amber-200 transition-colors">5th
+                  Anniversary Festival Campaign</h3>
+              </div>
+              <div
+                class="p-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-amber-400 group-hover:scale-110 transition-transform">
+                <i data-lucide="palette" class="w-5 h-5"></i>
+              </div>
+            </div>
+
+            <!-- 1080x1080 Aspect-Square Container -->
+            <div
+              class="relative w-full aspect-square rounded-2xl overflow-hidden bg-black/40 border border-white/10 group-hover:border-amber-400/40 transition-colors mb-6 flex items-center justify-center">
+              <img src="social-media/anniversary-foods-forest.jpg"
+                data-fallbacks="Social%20Media%20design/anniversary-foods-forest.jpg|Social Media design/anniversary-foods-forest.jpg|social-media/anniversary-foods-forest.jpg|Social%20Media%20design/5th%20anniversary%20of%20FOODS%20FOREST%202.jpg|Social Media design/5th anniversary of FOODS FOREST 2.jpg|social-media/5th anniversary of FOODS FOREST 2.jpg|public/social-media/anniversary-foods-forest.jpg"
+                onerror="handleImgFallback(this)"
+                alt="5th Anniversary Festival Campaign Poster for Food's Forest by Shamima Tanjin"
+                class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700 ease-out"
+                loading="eager" />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-between p-4 pointer-events-none">
+                <span class="text-xs font-mono text-white/90">REF // 01 • 1080×1080 Original</span>
+                <span
+                  class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-full bg-amber-400 text-slate-950 font-mono text-xs font-bold shadow-amber-glow"><i
+                    data-lucide="eye" class="w-3.5 h-3.5"></i><span>Preview Full</span></span>
+              </div>
+            </div>
+
+            <p class="text-neutral-300 text-xs sm:text-sm leading-relaxed mb-6 font-light">
+              Celebratory 5th-anniversary social media campaign poster designed for Food's Forest, featuring festive
+              typography, discount highlights, and brand storytelling.
+            </p>
+          </div>
+          <div
+            class="relative z-10 pt-4 border-t border-white/5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-white/[0.04] text-neutral-300">Anniversary
+                Campaign</span>
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-white/[0.04] text-neutral-300">Promotional
+                Poster</span>
+              <span
+                class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-white/[0.04] text-neutral-300">Photoshop</span>
+            </div>
+            <a href="mailto:shtanjin24@gmail.com?subject=Inquiry%20regarding%205th%20Anniversary%20Festival%20Campaign"
+              onclick="event.stopPropagation()"
+              class="inline-flex items-center space-x-1.5 px-4 py-2 rounded-full bg-amber-400 text-slate-950 text-xs font-semibold hover:bg-amber-300 transition-all shadow-amber-glow hover:scale-105 active:scale-95 flex-shrink-0">
+              <span>Inquire Design</span>
+              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Design 02: Best Burger In The Town Promo -->
+        <div
+          class="portfolio-card graphic promo social group relative rounded-3xl p-6 sm:p-8 glass-panel border border-white/10 hover:border-amber-400/40 transition-all duration-300 flex flex-col justify-between overflow-hidden hover:shadow-[0_0_35px_rgba(245,158,11,0.2)] cursor-pointer"
+          onclick="openLightbox(1)">
+          <div class="relative z-10">
+            <div class="flex items-start justify-between mb-4">
+              <div>
+                <div class="text-xs font-mono text-amber-400 tracking-wider uppercase mb-1">Promotional Poster • Food's
+                  Forest (Restaurant)</div>
+                <h3 class="text-xl sm:text-2xl font-bold text-white group-hover:text-amber-200 transition-colors">Best
+                  Burger In The Town Promo</h3>
+              </div>
+              <div
+                class="p-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-amber-400 group-hover:scale-110 transition-transform">
+                <i data-lucide="palette" class="w-5 h-5"></i>
+              </div>
+            </div>
+
+            <!-- 1080x1080 Aspect-Square Container -->
+            <div
+              class="relative w-full aspect-square rounded-2xl overflow-hidden bg-black/40 border border-white/10 group-hover:border-amber-400/40 transition-colors mb-6 flex items-center justify-center">
+              <img src="social-media/best-burger-in-town.jpg"
+                data-fallbacks="Social%20Media%20design/best-burger-in-town.jpg|Social Media design/best-burger-in-town.jpg|social-media/best-burger-in-town.jpg|Social%20Media%20design/best%20burger%20in%20the%20town.jpg|Social Media design/best burger in the town.jpg|social-media/best burger in the town.jpg|public/social-media/best-burger-in-town.jpg"
+                onerror="handleImgFallback(this)" alt="Best Burger In The Town Social Media Ad by Shamima Tanjin"
+                class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700 ease-out"
+                loading="eager" />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-between p-4 pointer-events-none">
+                <span class="text-xs font-mono text-white/90">REF // 02 • 1080×1080 Original</span>
+                <span
+                  class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-full bg-amber-400 text-slate-950 font-mono text-xs font-bold shadow-amber-glow"><i
+                    data-lucide="eye" class="w-3.5 h-3.5"></i><span>Preview Full</span></span>
+              </div>
+            </div>
+
+            <p class="text-neutral-300 text-xs sm:text-sm leading-relaxed mb-6 font-light">
+              Mouth-watering commercial social media poster emphasizing crispy textures, layered burger ingredients,
+              vibrant color grading, and special promotion callout.
+            </p>
+          </div>
+          <div
+            class="relative z-10 pt-4 border-t border-white/5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-white/[0.04] text-neutral-300">Burger
+                Ad</span>
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-white/[0.04] text-neutral-300">Food
+                Photography</span>
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-white/[0.04] text-neutral-300">Color
+                Grading</span>
+            </div>
+            <a href="mailto:shtanjin24@gmail.com?subject=Inquiry%20regarding%20Best%20Burger%20In%20The%20Town%20Promo"
+              onclick="event.stopPropagation()"
+              class="inline-flex items-center space-x-1.5 px-4 py-2 rounded-full bg-amber-400 text-slate-950 text-xs font-semibold hover:bg-amber-300 transition-all shadow-amber-glow hover:scale-105 active:scale-95 flex-shrink-0">
+              <span>Inquire Design</span>
+              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Design 03: Gourmet Culinary Showcase -->
+        <div
+          class="portfolio-card graphic social group relative rounded-3xl p-6 sm:p-8 glass-panel border border-white/10 hover:border-amber-400/40 transition-all duration-300 flex flex-col justify-between overflow-hidden hover:shadow-[0_0_35px_rgba(245,158,11,0.2)] cursor-pointer"
+          onclick="openLightbox(2)">
+          <div class="relative z-10">
+            <div class="flex items-start justify-between mb-4">
+              <div>
+                <div class="text-xs font-mono text-amber-400 tracking-wider uppercase mb-1">Social Media Design • Food's
+                  Forest (Restaurant)</div>
+                <h3 class="text-xl sm:text-2xl font-bold text-white group-hover:text-amber-200 transition-colors">
+                  Gourmet Culinary Showcase</h3>
+              </div>
+              <div
+                class="p-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-amber-400 group-hover:scale-110 transition-transform">
+                <i data-lucide="palette" class="w-5 h-5"></i>
+              </div>
+            </div>
+
+            <!-- 1080x1080 Aspect-Square Container -->
+            <div
+              class="relative w-full aspect-square rounded-2xl overflow-hidden bg-black/40 border border-white/10 group-hover:border-amber-400/40 transition-colors mb-6 flex items-center justify-center">
+              <img src="social-media/food-post-gourmet.jpg"
+                data-fallbacks="Social%20Media%20design/food-post-gourmet.jpg|Social Media design/food-post-gourmet.jpg|social-media/food-post-gourmet.jpg|Social%20Media%20design/Food%20Post.jpg|Social Media design/Food Post.jpg|social-media/Food Post.jpg|public/social-media/food-post-gourmet.jpg"
+                onerror="handleImgFallback(this)" alt="Gourmet Culinary Showcase Social Media Post by Shamima Tanjin"
+                class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700 ease-out"
+                loading="eager" />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-between p-4 pointer-events-none">
+                <span class="text-xs font-mono text-white/90">REF // 03 • 1080×1080 Original</span>
+                <span
+                  class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-full bg-amber-400 text-slate-950 font-mono text-xs font-bold shadow-amber-glow"><i
+                    data-lucide="eye" class="w-3.5 h-3.5"></i><span>Preview Full</span></span>
+              </div>
+            </div>
+
+            <p class="text-neutral-300 text-xs sm:text-sm leading-relaxed mb-6 font-light">
+              Artistic food presentation creative highlighting premium restaurant offerings with clean layout, dynamic
+              lighting accents, and appetizing visual focus.
+            </p>
+          </div>
+          <div
+            class="relative z-10 pt-4 border-t border-white/5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-white/[0.04] text-neutral-300">Gourmet
+                Dining</span>
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-white/[0.04] text-neutral-300">Social Media
+                Post</span>
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-white/[0.04] text-neutral-300">Visual
+                Retouching</span>
+            </div>
+            <a href="mailto:shtanjin24@gmail.com?subject=Inquiry%20regarding%20Gourmet%20Culinary%20Showcase"
+              onclick="event.stopPropagation()"
+              class="inline-flex items-center space-x-1.5 px-4 py-2 rounded-full bg-amber-400 text-slate-950 text-xs font-semibold hover:bg-amber-300 transition-all shadow-amber-glow hover:scale-105 active:scale-95 flex-shrink-0">
+              <span>Inquire Design</span>
+              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Design 04: Signature Feast & Dining Offer -->
+        <div
+          class="portfolio-card graphic promo group relative rounded-3xl p-6 sm:p-8 glass-panel border border-white/10 hover:border-amber-400/40 transition-all duration-300 flex flex-col justify-between overflow-hidden hover:shadow-[0_0_35px_rgba(245,158,11,0.2)] cursor-pointer"
+          onclick="openLightbox(3)">
+          <div class="relative z-10">
+            <div class="flex items-start justify-between mb-4">
+              <div>
+                <div class="text-xs font-mono text-amber-400 tracking-wider uppercase mb-1">Promotional Poster • Food's
+                  Forest (Restaurant)</div>
+                <h3 class="text-xl sm:text-2xl font-bold text-white group-hover:text-amber-200 transition-colors">
+                  Signature Feast & Dining Offer</h3>
+              </div>
+              <div
+                class="p-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-amber-400 group-hover:scale-110 transition-transform">
+                <i data-lucide="palette" class="w-5 h-5"></i>
+              </div>
+            </div>
+
+            <!-- 1080x1080 Aspect-Square Container -->
+            <div
+              class="relative w-full aspect-square rounded-2xl overflow-hidden bg-black/40 border border-white/10 group-hover:border-amber-400/40 transition-colors mb-6 flex items-center justify-center">
+              <img src="social-media/food-post-signature-feast.jpg"
+                data-fallbacks="Social%20Media%20design/food-post-signature-feast.jpg|Social Media design/food-post-signature-feast.jpg|social-media/food-post-signature-feast.jpg|Social%20Media%20design/Food%20Post2.jpg|Social Media design/Food Post2.jpg|social-media/Food Post2.jpg|public/social-media/food-post-signature-feast.jpg"
+                onerror="handleImgFallback(this)"
+                alt="Signature Feast & Dining Offer Social Media Creative by Shamima Tanjin"
+                class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700 ease-out"
+                loading="eager" />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-between p-4 pointer-events-none">
+                <span class="text-xs font-mono text-white/90">REF // 04 • 1080×1080 Original</span>
+                <span
+                  class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-full bg-amber-400 text-slate-950 font-mono text-xs font-bold shadow-amber-glow"><i
+                    data-lucide="eye" class="w-3.5 h-3.5"></i><span>Preview Full</span></span>
+              </div>
+            </div>
+
+            <p class="text-neutral-300 text-xs sm:text-sm leading-relaxed mb-6 font-light">
+              Special dining promotion creative designed for social feeds and digital boards, combining balanced
+              typography with an appetizing multi-dish showcase.
+            </p>
+          </div>
+          <div
+            class="relative z-10 pt-4 border-t border-white/5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-white/[0.04] text-neutral-300">Special
+                Offer</span>
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-white/[0.04] text-neutral-300">Feast
+                Creative</span>
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-white/[0.04] text-neutral-300">Promotional
+                Poster</span>
+            </div>
+            <a href="mailto:shtanjin24@gmail.com?subject=Inquiry%20regarding%20Signature%20Feast%20%26%20Dining%20Offer"
+              onclick="event.stopPropagation()"
+              class="inline-flex items-center space-x-1.5 px-4 py-2 rounded-full bg-amber-400 text-slate-950 text-xs font-semibold hover:bg-amber-300 transition-all shadow-amber-glow hover:scale-105 active:scale-95 flex-shrink-0">
+              <span>Inquire Design</span>
+              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Design 05: Crispy Specialty Delights -->
+        <div
+          class="portfolio-card graphic social promo group relative rounded-3xl p-6 sm:p-8 glass-panel border border-white/10 hover:border-amber-400/40 transition-all duration-300 flex flex-col justify-between overflow-hidden hover:shadow-[0_0_35px_rgba(245,158,11,0.2)] cursor-pointer"
+          onclick="openLightbox(4)">
+          <div class="relative z-10">
+            <div class="flex items-start justify-between mb-4">
+              <div>
+                <div class="text-xs font-mono text-amber-400 tracking-wider uppercase mb-1">Social Media Design • Food's
+                  Forest (Restaurant)</div>
+                <h3 class="text-xl sm:text-2xl font-bold text-white group-hover:text-amber-200 transition-colors">Crispy
+                  Specialty Delights</h3>
+              </div>
+              <div
+                class="p-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-amber-400 group-hover:scale-110 transition-transform">
+                <i data-lucide="palette" class="w-5 h-5"></i>
+              </div>
+            </div>
+
+            <!-- 1080x1080 Aspect-Square Container -->
+            <div
+              class="relative w-full aspect-square rounded-2xl overflow-hidden bg-black/40 border border-white/10 group-hover:border-amber-400/40 transition-colors mb-6 flex items-center justify-center">
+              <img src="social-media/food-post-crispy-delights.jpg"
+                data-fallbacks="Social%20Media%20design/food-post-crispy-delights.jpg|Social Media design/food-post-crispy-delights.jpg|social-media/food-post-crispy-delights.jpg|Social%20Media%20design/Food%20Post%203.jpg|Social Media design/Food Post 3.jpg|social-media/Food Post 3.jpg|public/social-media/food-post-crispy-delights.jpg"
+                onerror="handleImgFallback(this)" alt="Crispy Specialty Delights Social Media Graphic by Shamima Tanjin"
+                class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700 ease-out"
+                loading="eager" />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-between p-4 pointer-events-none">
+                <span class="text-xs font-mono text-white/90">REF // 05 • 1080×1080 Original</span>
+                <span
+                  class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-full bg-amber-400 text-slate-950 font-mono text-xs font-bold shadow-amber-glow"><i
+                    data-lucide="eye" class="w-3.5 h-3.5"></i><span>Preview Full</span></span>
+              </div>
+            </div>
+
+            <p class="text-neutral-300 text-xs sm:text-sm leading-relaxed mb-6 font-light">
+              Engaging snack and appetizer promotional creative highlighting crunch and flavor through rich background
+              contrast and bold headline hierarchy.
+            </p>
+          </div>
+          <div
+            class="relative z-10 pt-4 border-t border-white/5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-white/[0.04] text-neutral-300">Crispy
+                Delights</span>
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-white/[0.04] text-neutral-300">Snack
+                Campaign</span>
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-white/[0.04] text-neutral-300">Social Media
+                Ad</span>
+            </div>
+            <a href="mailto:shtanjin24@gmail.com?subject=Inquiry%20regarding%20Crispy%20Specialty%20Delights"
+              onclick="event.stopPropagation()"
+              class="inline-flex items-center space-x-1.5 px-4 py-2 rounded-full bg-amber-400 text-slate-950 text-xs font-semibold hover:bg-amber-300 transition-all shadow-amber-glow hover:scale-105 active:scale-95 flex-shrink-0">
+              <span>Inquire Design</span>
+              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Design 06: Chef's Signature Collection -->
+        <div
+          class="portfolio-card graphic campaign group relative rounded-3xl p-6 sm:p-8 glass-panel border border-white/10 hover:border-amber-400/40 transition-all duration-300 flex flex-col justify-between overflow-hidden hover:shadow-[0_0_35px_rgba(245,158,11,0.2)] cursor-pointer"
+          onclick="openLightbox(5)">
+          <div class="relative z-10">
+            <div class="flex items-start justify-between mb-4">
+              <div>
+                <div class="text-xs font-mono text-amber-400 tracking-wider uppercase mb-1">Campaign Creative • Food's
+                  Forest (Restaurant)</div>
+                <h3 class="text-xl sm:text-2xl font-bold text-white group-hover:text-amber-200 transition-colors">Chef's
+                  Signature Collection</h3>
+              </div>
+              <div
+                class="p-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-amber-400 group-hover:scale-110 transition-transform">
+                <i data-lucide="palette" class="w-5 h-5"></i>
+              </div>
+            </div>
+
+            <!-- 1080x1080 Aspect-Square Container -->
+            <div
+              class="relative w-full aspect-square rounded-2xl overflow-hidden bg-black/40 border border-white/10 group-hover:border-amber-400/40 transition-colors mb-6 flex items-center justify-center">
+              <img src="social-media/food-post-chef-special.jpg"
+                data-fallbacks="Social%20Media%20design/food-post-chef-special.jpg|Social Media design/food-post-chef-special.jpg|social-media/food-post-chef-special.jpg|Social%20Media%20design/Food%20Post4.jpg|Social Media design/Food Post4.jpg|social-media/Food Post4.jpg|public/social-media/food-post-chef-special.jpg"
+                onerror="handleImgFallback(this)" alt="Chef's Signature Collection Social Media Post by Shamima Tanjin"
+                class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700 ease-out"
+                loading="eager" />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-between p-4 pointer-events-none">
+                <span class="text-xs font-mono text-white/90">REF // 06 • 1080×1080 Original</span>
+                <span
+                  class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-full bg-amber-400 text-slate-950 font-mono text-xs font-bold shadow-amber-glow"><i
+                    data-lucide="eye" class="w-3.5 h-3.5"></i><span>Preview Full</span></span>
+              </div>
+            </div>
+
+            <p class="text-neutral-300 text-xs sm:text-sm leading-relaxed mb-6 font-light">
+              High-conversion social media post designed to showcase the chef's signature dishes with detailed
+              ingredient retouching and premium aesthetic styling.
+            </p>
+          </div>
+          <div
+            class="relative z-10 pt-4 border-t border-white/5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-white/[0.04] text-neutral-300">Chef's
+                Special</span>
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-white/[0.04] text-neutral-300">Culinary
+                Branding</span>
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-white/[0.04] text-neutral-300">Campaign
+                Creative</span>
+            </div>
+            <a href="mailto:shtanjin24@gmail.com?subject=Inquiry%20regarding%20Chef's%20Signature%20Collection"
+              onclick="event.stopPropagation()"
+              class="inline-flex items-center space-x-1.5 px-4 py-2 rounded-full bg-amber-400 text-slate-950 text-xs font-semibold hover:bg-amber-300 transition-all shadow-amber-glow hover:scale-105 active:scale-95 flex-shrink-0">
+              <span>Inquire Design</span>
+              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Design 07: Refreshing Coffee & Artisan Brews -->
+        <div
+          class="portfolio-card graphic social group relative rounded-3xl p-6 sm:p-8 glass-panel border border-white/10 hover:border-amber-400/40 transition-all duration-300 flex flex-col justify-between overflow-hidden hover:shadow-[0_0_35px_rgba(245,158,11,0.2)] cursor-pointer"
+          onclick="openLightbox(6)">
+          <div class="relative z-10">
+            <div class="flex items-start justify-between mb-4">
+              <div>
+                <div class="text-xs font-mono text-amber-400 tracking-wider uppercase mb-1">Social Media Poster • Food's
+                  Forest (Restaurant)</div>
+                <h3 class="text-xl sm:text-2xl font-bold text-white group-hover:text-amber-200 transition-colors">
+                  Refreshing Coffee & Artisan Brews</h3>
+              </div>
+              <div
+                class="p-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-amber-400 group-hover:scale-110 transition-transform">
+                <i data-lucide="palette" class="w-5 h-5"></i>
+              </div>
+            </div>
+
+            <!-- 1080x1080 Aspect-Square Container -->
+            <div
+              class="relative w-full aspect-square rounded-2xl overflow-hidden bg-black/40 border border-white/10 group-hover:border-amber-400/40 transition-colors mb-6 flex items-center justify-center">
+              <img src="social-media/refresh-coffee.jpg"
+                data-fallbacks="Social%20Media%20design/refresh-coffee.jpg|Social Media design/refresh-coffee.jpg|social-media/refresh-coffee.jpg|Social%20Media%20design/refresh%20coffee.jpg|Social Media design/refresh coffee.jpg|social-media/refresh coffee.jpg|public/social-media/refresh-coffee.jpg"
+                onerror="handleImgFallback(this)" alt="Refreshing Coffee Social Media Poster by Shamima Tanjin"
+                class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700 ease-out"
+                loading="eager" />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-between p-4 pointer-events-none">
+                <span class="text-xs font-mono text-white/90">REF // 07 • 1080×1080 Original</span>
+                <span
+                  class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-full bg-amber-400 text-slate-950 font-mono text-xs font-bold shadow-amber-glow"><i
+                    data-lucide="eye" class="w-3.5 h-3.5"></i><span>Preview Full</span></span>
+              </div>
+            </div>
+
+            <p class="text-neutral-300 text-xs sm:text-sm leading-relaxed mb-6 font-light">
+              Cozy and invigorating beverage promotional poster celebrating artisan coffee blends with warm earthy
+              tones, steam accents, and sleek typography.
+            </p>
+          </div>
+          <div
+            class="relative z-10 pt-4 border-t border-white/5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-white/[0.04] text-neutral-300">Artisan
+                Coffee</span>
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-white/[0.04] text-neutral-300">Beverage
+                Poster</span>
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-white/[0.04] text-neutral-300">Warm
+                Aesthetic</span>
+            </div>
+            <a href="mailto:shtanjin24@gmail.com?subject=Inquiry%20regarding%20Refreshing%20Coffee%20%26%20Artisan%20Brews"
+              onclick="event.stopPropagation()"
+              class="inline-flex items-center space-x-1.5 px-4 py-2 rounded-full bg-amber-400 text-slate-950 text-xs font-semibold hover:bg-amber-300 transition-all shadow-amber-glow hover:scale-105 active:scale-95 flex-shrink-0">
+              <span>Inquire Design</span>
+              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Design 08: Premium Sandwich Combo Deal -->
+        <div
+          class="portfolio-card graphic promo campaign group relative rounded-3xl p-6 sm:p-8 glass-panel border border-white/10 hover:border-amber-400/40 transition-all duration-300 flex flex-col justify-between overflow-hidden hover:shadow-[0_0_35px_rgba(245,158,11,0.2)] cursor-pointer"
+          onclick="openLightbox(7)">
+          <div class="relative z-10">
+            <div class="flex items-start justify-between mb-4">
+              <div>
+                <div class="text-xs font-mono text-amber-400 tracking-wider uppercase mb-1">Promotional Poster • Food's
+                  Forest (Restaurant)</div>
+                <h3 class="text-xl sm:text-2xl font-bold text-white group-hover:text-amber-200 transition-colors">
+                  Premium Sandwich Combo Deal</h3>
+              </div>
+              <div
+                class="p-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-amber-400 group-hover:scale-110 transition-transform">
+                <i data-lucide="palette" class="w-5 h-5"></i>
+              </div>
+            </div>
+
+            <!-- 1080x1080 Aspect-Square Container -->
+            <div
+              class="relative w-full aspect-square rounded-2xl overflow-hidden bg-black/40 border border-white/10 group-hover:border-amber-400/40 transition-colors mb-6 flex items-center justify-center">
+              <img src="social-media/sandwich-combo.jpg"
+                data-fallbacks="Social%20Media%20design/sandwich-combo.jpg|Social Media design/sandwich-combo.jpg|social-media/sandwich-combo.jpg|Social%20Media%20design/Sandwich%20Combo.jpg|Social Media design/Sandwich Combo.jpg|social-media/Sandwich Combo.jpg|public/social-media/sandwich-combo.jpg"
+                onerror="handleImgFallback(this)" alt="Premium Sandwich Combo Deal Campaign by Shamima Tanjin"
+                class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700 ease-out"
+                loading="eager" />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-between p-4 pointer-events-none">
+                <span class="text-xs font-mono text-white/90">REF // 08 • 1080×1080 Original</span>
+                <span
+                  class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-full bg-amber-400 text-slate-950 font-mono text-xs font-bold shadow-amber-glow"><i
+                    data-lucide="eye" class="w-3.5 h-3.5"></i><span>Preview Full</span></span>
+              </div>
+            </div>
+
+            <p class="text-neutral-300 text-xs sm:text-sm leading-relaxed mb-6 font-light">
+              Action-driving promotional combo poster featuring sandwich and beverage pairings with prominent discount
+              badging and bold commercial typography.
+            </p>
+          </div>
+          <div
+            class="relative z-10 pt-4 border-t border-white/5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-white/[0.04] text-neutral-300">Combo
+                Deal</span>
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-white/[0.04] text-neutral-300">Value
+                Offer</span>
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-white/[0.04] text-neutral-300">Discount
+                Campaign</span>
+            </div>
+            <a href="mailto:shtanjin24@gmail.com?subject=Inquiry%20regarding%20Premium%20Sandwich%20Combo%20Deal"
+              onclick="event.stopPropagation()"
+              class="inline-flex items-center space-x-1.5 px-4 py-2 rounded-full bg-amber-400 text-slate-950 text-xs font-semibold hover:bg-amber-300 transition-all shadow-amber-glow hover:scale-105 active:scale-95 flex-shrink-0">
+              <span>Inquire Design</span>
+              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Design 09: Club Sandwich Special Delight -->
+        <div
+          class="portfolio-card graphic social group relative rounded-3xl p-6 sm:p-8 glass-panel border border-white/10 hover:border-amber-400/40 transition-all duration-300 flex flex-col justify-between overflow-hidden hover:shadow-[0_0_35px_rgba(245,158,11,0.2)] cursor-pointer"
+          onclick="openLightbox(8)">
+          <div class="relative z-10">
+            <div class="flex items-start justify-between mb-4">
+              <div>
+                <div class="text-xs font-mono text-amber-400 tracking-wider uppercase mb-1">Social Media Post • Food's
+                  Forest (Restaurant)</div>
+                <h3 class="text-xl sm:text-2xl font-bold text-white group-hover:text-amber-200 transition-colors">Club
+                  Sandwich Special Delight</h3>
+              </div>
+              <div
+                class="p-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-amber-400 group-hover:scale-110 transition-transform">
+                <i data-lucide="palette" class="w-5 h-5"></i>
+              </div>
+            </div>
+
+            <!-- 1080x1080 Aspect-Square Container -->
+            <div
+              class="relative w-full aspect-square rounded-2xl overflow-hidden bg-black/40 border border-white/10 group-hover:border-amber-400/40 transition-colors mb-6 flex items-center justify-center">
+              <img src="social-media/sandwich-club.jpg"
+                data-fallbacks="Social%20Media%20design/sandwich-club.jpg|Social Media design/sandwich-club.jpg|social-media/sandwich-club.jpg|Social%20Media%20design/sandwich.jpg|Social Media design/sandwich.jpg|social-media/sandwich.jpg|public/social-media/sandwich-club.jpg"
+                onerror="handleImgFallback(this)" alt="Club Sandwich Special Delight Social Graphic by Shamima Tanjin"
+                class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700 ease-out"
+                loading="eager" />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-between p-4 pointer-events-none">
+                <span class="text-xs font-mono text-white/90">REF // 09 • 1080×1080 Original</span>
+                <span
+                  class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-full bg-amber-400 text-slate-950 font-mono text-xs font-bold shadow-amber-glow"><i
+                    data-lucide="eye" class="w-3.5 h-3.5"></i><span>Preview Full</span></span>
+              </div>
+            </div>
+
+            <p class="text-neutral-300 text-xs sm:text-sm leading-relaxed mb-6 font-light">
+              Vibrant social media creative spotlighting the signature club sandwich, blending fresh garden colors,
+              appetizing ingredient focus, and clean layout.
+            </p>
+          </div>
+          <div
+            class="relative z-10 pt-4 border-t border-white/5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-white/[0.04] text-neutral-300">Club
+                Sandwich</span>
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-white/[0.04] text-neutral-300">Fresh
+                Ingredients</span>
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-white/[0.04] text-neutral-300">Food Social
+                Post</span>
+            </div>
+            <a href="mailto:shtanjin24@gmail.com?subject=Inquiry%20regarding%20Club%20Sandwich%20Special%20Delight"
+              onclick="event.stopPropagation()"
+              class="inline-flex items-center space-x-1.5 px-4 py-2 rounded-full bg-amber-400 text-slate-950 text-xs font-semibold hover:bg-amber-300 transition-all shadow-amber-glow hover:scale-105 active:scale-95 flex-shrink-0">
+              <span>Inquire Design</span>
+              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Design 10: Monsoon Special Khichuri & Biryani (বাদলমুখর দিনে) -->
+        <div
+          class="portfolio-card graphic promo campaign social group relative rounded-3xl p-6 sm:p-8 glass-panel border border-white/10 hover:border-amber-400/40 transition-all duration-300 flex flex-col justify-between overflow-hidden hover:shadow-[0_0_35px_rgba(245,158,11,0.2)] cursor-pointer"
+          onclick="openLightbox(9)">
+          <div class="relative z-10">
+            <div class="flex items-start justify-between mb-4">
+              <div>
+                <div class="text-xs font-mono text-amber-400 tracking-wider uppercase mb-1">Festive Campaign • Food's
+                  Forest (Restaurant)</div>
+                <h3 class="text-xl sm:text-2xl font-bold text-white group-hover:text-amber-200 transition-colors">
+                  Monsoon Special Khichuri & Biryani (বাদলমুখর দিনে)</h3>
+              </div>
+              <div
+                class="p-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-amber-400 group-hover:scale-110 transition-transform">
+                <i data-lucide="palette" class="w-5 h-5"></i>
+              </div>
+            </div>
+
+            <!-- 1080x1080 Aspect-Square Container -->
+            <div
+              class="relative w-full aspect-square rounded-2xl overflow-hidden bg-black/40 border border-white/10 group-hover:border-amber-400/40 transition-colors mb-6 flex items-center justify-center">
+              <img src="social-media/badal-mukhor-dine-khicuri-biriyani-fried-rice.jpg"
+                data-fallbacks="Social%20Media%20design/badal-mukhor-dine-khicuri-biriyani-fried-rice.jpg|Social Media design/badal-mukhor-dine-khicuri-biriyani-fried-rice.jpg|social-media/badal-mukhor-dine-khicuri-biriyani-fried-rice.jpg|Social%20Media%20design/badal-mukhor-dine-khicuri-biriyani-fried-rice.jpg|Social Media design/badal-mukhor-dine-khicuri-biriyani-fried-rice.jpg|social-media/badal-mukhor-dine-khicuri-biriyani-fried-rice.jpg|public/social-media/badal-mukhor-dine-khicuri-biriyani-fried-rice.jpg"
+                onerror="handleImgFallback(this)"
+                alt="Monsoon Special Khichuri, Biryani & Fried Rice Campaign by Shamima Tanjin"
+                class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700 ease-out"
+                loading="eager" />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-between p-4 pointer-events-none">
+                <span class="text-xs font-mono text-white/90">REF // 10 • 1080×1080 Original</span>
+                <span
+                  class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-full bg-amber-400 text-slate-950 font-mono text-xs font-bold shadow-amber-glow"><i
+                    data-lucide="eye" class="w-3.5 h-3.5"></i><span>Preview Full</span></span>
+              </div>
+            </div>
+
+            <p class="text-neutral-300 text-xs sm:text-sm leading-relaxed mb-6 font-light">
+              Traditional seasonal festive poster designed for monsoon cravings ('বাদলমুখর দিনে'), showcasing hot
+              khichuri, biryani, and fried rice specials with culturally evocative typography.
+            </p>
+          </div>
+          <div
+            class="relative z-10 pt-4 border-t border-white/5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-white/[0.04] text-neutral-300">Monsoon
+                Special</span>
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-white/[0.04] text-neutral-300">Khichuri &
+                Biryani</span>
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-white/[0.04] text-neutral-300">Festive
+                Campaign</span>
+            </div>
+            <a href="mailto:shtanjin24@gmail.com?subject=Inquiry%20regarding%20Monsoon%20Special%20Khichuri%20%26%20Biryani"
+              onclick="event.stopPropagation()"
+              class="inline-flex items-center space-x-1.5 px-4 py-2 rounded-full bg-amber-400 text-slate-950 text-xs font-semibold hover:bg-amber-300 transition-all shadow-amber-glow hover:scale-105 active:scale-95 flex-shrink-0">
+              <span>Inquire Design</span>
+              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lightbox Modal for High-Resolution Image Preview -->
+    <div id="image-lightbox"
+      class="hidden fixed inset-0 z-50 bg-black/90 backdrop-blur-md items-center justify-center p-4 sm:p-8"
+      onclick="closeLightbox()">
+      <div
+        class="relative max-w-4xl w-full glass-panel-glow border border-white/20 rounded-3xl p-4 sm:p-6 flex flex-col items-center"
+        onclick="event.stopPropagation()">
+        <button onclick="closeLightbox()" aria-label="Close Lightbox"
+          class="absolute top-4 right-4 p-2 rounded-full glass-panel text-neutral-300 hover:text-white hover:border-amber-400/50 transition-colors z-20">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+        <div
+          class="w-full max-w-[620px] aspect-square rounded-2xl overflow-hidden bg-black/60 border border-white/10 mb-4 shadow-2xl flex items-center justify-center">
+          <img id="lightbox-img" src="" alt="Full Preview" class="w-full h-full object-contain" />
+        </div>
+        <div class="w-full flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 px-2">
+          <div>
+            <div id="lightbox-client" class="text-xs font-mono text-amber-400 uppercase tracking-wider"></div>
+            <h4 id="lightbox-title" class="text-xl font-bold text-white"></h4>
+            <p id="lightbox-desc" class="text-xs text-neutral-400 font-light mt-1 max-w-xl"></p>
+          </div>
+          <a id="lightbox-cta" href="mailto:shtanjin24@gmail.com"
+            class="inline-flex items-center space-x-1.5 px-5 py-2.5 rounded-full bg-amber-400 text-slate-950 text-xs font-bold uppercase font-mono tracking-wider hover:bg-amber-300 transition-all shadow-amber-glow flex-shrink-0">
+            <span>Commission Project</span>
+            <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- 6. CREATIVE PROCESS (Sequential Step-by-Step Reveal)     -->
+  <!-- ========================================================= -->
+  <section id="process"
+    class="relative w-full py-28 px-6 sm:px-10 md:px-16 lg:px-24 bg-[#080b0e] z-20 border-t border-white/5 overflow-hidden">
+    <div class="max-w-7xl mx-auto">
+      <div
+        class="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-8 border-b border-white/10 gap-6 reveal-init">
+        <div>
+          <div
+            class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full glass-panel text-amber-400 text-xs font-mono tracking-widest uppercase mb-4">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+            <span>Workflow &amp; Methodology</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-[1.15]">
+            My 5-Step <br />
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-200 to-amber-500">
+              Creative Process.
+            </span>
+          </h2>
+        </div>
+
+        <p class="max-w-md text-neutral-400 text-sm sm:text-base font-light leading-relaxed">
+          A proven, structured approach ensuring seamless communication,
+          artistic integrity, and exceptional project outcomes.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
+
+        <div
+          class="glass-panel p-6 rounded-3xl border border-white/10 hover:border-amber-400/40 transition-all flex flex-col justify-between tilt-card reveal-init delay-100 cursor-pointer">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <span class="text-2xl font-mono font-bold text-amber-400/90">01</span>
+              <div
+                class="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-amber-400">
+                <i data-lucide="compass" class="w-5 h-5"></i>
+              </div>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-1">Discover</h3>
+            <div class="text-xs font-mono text-amber-400/90 mb-3">Understand project goals.</div>
+            <p class="text-neutral-400 text-xs sm:text-sm leading-relaxed font-light">
+              Deep-dive inquiry into brand identity, audience expectations, competitors, and functional objectives to
+              set a crystal-clear creative direction.
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="glass-panel p-6 rounded-3xl border border-white/10 hover:border-amber-400/40 transition-all flex flex-col justify-between tilt-card reveal-init delay-200 cursor-pointer">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <span class="text-2xl font-mono font-bold text-amber-400/90">02</span>
+              <div
+                class="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-amber-400">
+                <i data-lucide="lightbulb" class="w-5 h-5"></i>
+              </div>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-1">Plan</h3>
+            <div class="text-xs font-mono text-amber-400/90 mb-3">Develop creative concepts.</div>
+            <p class="text-neutral-400 text-xs sm:text-sm leading-relaxed font-light">
+              Moodboarding, wireframing, storyboarding, and conceptual architecture to map out the visual narrative
+              before production.
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="glass-panel p-6 rounded-3xl border border-white/10 hover:border-amber-400/40 transition-all flex flex-col justify-between tilt-card reveal-init delay-300 cursor-pointer">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <span class="text-2xl font-mono font-bold text-amber-400/90">03</span>
+              <div
+                class="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-amber-400">
+                <i data-lucide="wand-2" class="w-5 h-5"></i>
+              </div>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-1">Design</h3>
+            <div class="text-xs font-mono text-amber-400/90 mb-3">Create the visual solution.</div>
+            <p class="text-neutral-400 text-xs sm:text-sm leading-relaxed font-light">
+              Translating concepts into high-fidelity graphics, interactive UI layouts, or dynamic video sequences with
+              craft and typography harmony.
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="glass-panel p-6 rounded-3xl border border-white/10 hover:border-amber-400/40 transition-all flex flex-col justify-between tilt-card reveal-init delay-400 cursor-pointer">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <span class="text-2xl font-mono font-bold text-amber-400/90">04</span>
+              <div
+                class="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-amber-400">
+                <i data-lucide="sliders" class="w-5 h-5"></i>
+              </div>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-1">Refine</h3>
+            <div class="text-xs font-mono text-amber-400/90 mb-3">Improve and polish the work.</div>
+            <p class="text-neutral-400 text-xs sm:text-sm leading-relaxed font-light">
+              Meticulous iteration, typography tweaking, color grading refinement, responsiveness checks, and client
+              feedback integration.
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="glass-panel p-6 rounded-3xl border border-white/10 hover:border-amber-400/40 transition-all flex flex-col justify-between tilt-card reveal-init delay-500 cursor-pointer">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <span class="text-2xl font-mono font-bold text-amber-400/90">05</span>
+              <div
+                class="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-amber-400">
+                <i data-lucide="check-circle" class="w-5 h-5"></i>
+              </div>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-1">Deliver</h3>
+            <div class="text-xs font-mono text-amber-400/90 mb-3">Complete and deliver the final project.</div>
+            <p class="text-neutral-400 text-xs sm:text-sm leading-relaxed font-light">
+              Packaging final high-resolution assets, production-ready code, or optimized video deliverables ready for
+              commercial launch.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- 7. EXPERIENCE SECTION (Growing Timeline Line Animation)   -->
+  <!-- ========================================================= -->
+  <section id="experience-timeline"
+    class="relative w-full py-28 px-6 sm:px-10 md:px-16 lg:px-24 bg-[#080b0e] z-20 border-t border-white/5 overflow-hidden">
+    <div class="max-w-7xl mx-auto">
+      <div
+        class="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-8 border-b border-white/10 gap-6 reveal-init">
+        <div>
+          <div
+            class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full glass-panel text-amber-400 text-xs font-mono tracking-widest uppercase mb-4">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+            <span>Professional Journey</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-[1.15]">
+            5+ Years of Proven <br />
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-200 to-amber-500">
+              Creative Experience.
+            </span>
+          </h2>
+        </div>
+
+        <p class="max-w-md text-neutral-400 text-sm sm:text-base font-light leading-relaxed">
+          A comprehensive track record of transforming client visions into high-impact
+          graphic identities, responsive websites, and engaging digital video content.
+        </p>
+      </div>
+
+      <!-- 3 Pillars of Expertise Banner -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-16 reveal-init">
+        <div
+          class="glass-panel p-5 rounded-2xl border border-white/10 flex items-center space-x-3.5 hover:border-amber-400/40 transition-colors">
+          <div
+            class="w-10 h-10 rounded-xl bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-400 flex-shrink-0">
+            <i data-lucide="award" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <div class="text-sm font-bold text-white">Graphic Design</div>
+            <div class="text-xs text-neutral-400 font-mono">5+ Years Proven Track Record</div>
+          </div>
+        </div>
+
+        <div
+          class="glass-panel p-5 rounded-2xl border border-white/10 flex items-center space-x-3.5 hover:border-amber-400/40 transition-colors">
+          <div
+            class="w-10 h-10 rounded-xl bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-400 flex-shrink-0">
+            <i data-lucide="award" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <div class="text-sm font-bold text-white">Web &amp; Digital IT</div>
+            <div class="text-xs text-neutral-400 font-mono">Instruction &amp; Development</div>
+          </div>
+        </div>
+
+        <div
+          class="glass-panel p-5 rounded-2xl border border-white/10 flex items-center space-x-3.5 hover:border-amber-400/40 transition-colors">
+          <div
+            class="w-10 h-10 rounded-xl bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-400 flex-shrink-0">
+            <i data-lucide="award" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <div class="text-sm font-bold text-white">Video &amp; Content Creation</div>
+            <div class="text-xs text-neutral-400 font-mono">High-Engagement Campaigns</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Timeline Entries with Animated Growing Line -->
+      <div class="relative hidden sm:block">
+        <!-- Growing Line -->
+        <div id="timeline-line-el"
+          class="timeline-line absolute left-8 top-6 bottom-6 w-0.5 bg-gradient-to-b from-amber-400 via-amber-400/50 to-transparent z-0">
+        </div>
+
+        <div class="space-y-10 relative z-10">
+
+          <!-- Experience 1: Junior Instructor in Computer Science -->
+          <div class="relative pl-16 group reveal-left delay-100">
+            <div
+              class="absolute left-6 top-6 -translate-x-1/2 w-4 h-4 rounded-full bg-noir-900 border-2 border-amber-400 shadow-[0_0_15px_rgba(245,158,11,0.9)] group-hover:scale-125 transition-transform">
+            </div>
+            <div
+              class="glass-panel p-8 rounded-3xl border border-white/10 hover:border-amber-400/40 transition-all cursor-pointer tilt-card">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+                <div>
+                  <span class="text-xs font-mono text-amber-400 uppercase tracking-wider block mb-1">Computer Science
+                    Instruction &amp; Digital Literacy</span>
+                  <h3 class="text-2xl font-bold text-white group-hover:text-amber-200 transition-colors">Junior
+                    Instructor in Computer Science</h3>
+                </div>
+                <span
+                  class="inline-flex items-center space-x-1.5 px-3.5 py-1.5 rounded-full glass-panel text-xs font-mono text-neutral-300 w-fit">
+                  <i data-lucide="building-2" class="w-3.5 h-3.5 text-amber-400"></i>
+                  <span>Dagonbhuiyan Science And Engineering Institute</span>
+                </span>
+              </div>
+              <div class="space-y-2.5">
+                <div class="flex items-start space-x-2.5 text-xs sm:text-sm text-neutral-300"><i
+                    data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5"></i><span>Developed
+                    and delivered curriculum focused on computer fundamentals, programming, and digital literacy.</span>
+                </div>
+                <div class="flex items-start space-x-2.5 text-xs sm:text-sm text-neutral-300"><i
+                    data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5"></i><span>Engaged
+                    students with interactive learning methodologies, hands-on projects, and real-world
+                    applications.</span></div>
+                <div class="flex items-start space-x-2.5 text-xs sm:text-sm text-neutral-300"><i
+                    data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5"></i><span>Mentored
+                    students in problem-solving techniques and critical thinking skills.</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Experience 2: Graphic Designer — Family Shopping -->
+          <div class="relative pl-16 group reveal-left delay-200">
+            <div
+              class="absolute left-6 top-6 -translate-x-1/2 w-4 h-4 rounded-full bg-noir-900 border-2 border-amber-400 shadow-[0_0_15px_rgba(245,158,11,0.9)] group-hover:scale-125 transition-transform">
+            </div>
+            <div
+              class="glass-panel p-8 rounded-3xl border border-white/10 hover:border-amber-400/40 transition-all cursor-pointer tilt-card">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+                <div>
+                  <span class="text-xs font-mono text-amber-400 uppercase tracking-wider block mb-1">Retail Branding,
+                    Print &amp; Packaging Design</span>
+                  <h3 class="text-2xl font-bold text-white group-hover:text-amber-200 transition-colors">Graphic
+                    Designer</h3>
+                </div>
+                <span
+                  class="inline-flex items-center space-x-1.5 px-3.5 py-1.5 rounded-full glass-panel text-xs font-mono text-neutral-300 w-fit">
+                  <i data-lucide="building-2" class="w-3.5 h-3.5 text-amber-400"></i>
+                  <span>Family Shopping (Super Shop)</span>
+                </span>
+              </div>
+              <div class="space-y-2.5">
+                <div class="flex items-start space-x-2.5 text-xs sm:text-sm text-neutral-300"><i
+                    data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5"></i><span>Created
+                    social media posts, T-shirt designs, video edits, banners, and leaflets.</span></div>
+                <div class="flex items-start space-x-2.5 text-xs sm:text-sm text-neutral-300"><i
+                    data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5"></i><span>Performed
+                    product photo retouching and packaging-style layout design.</span></div>
+                <div class="flex items-start space-x-2.5 text-xs sm:text-sm text-neutral-300"><i
+                    data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5"></i><span>Developed
+                    creative visual content following brand guidelines.</span></div>
+                <div class="flex items-start space-x-2.5 text-xs sm:text-sm text-neutral-300"><i
+                    data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5"></i><span>Designed
+                    daily offers, festival campaigns, and special discount posters.</span></div>
+                <div class="flex items-start space-x-2.5 text-xs sm:text-sm text-neutral-300"><i
+                    data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5"></i><span>Prepared
+                    print-ready files and collaborated with vendors for final production.</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Experience 3: Graphic Designer — Food's Forest -->
+          <div class="relative pl-16 group reveal-left delay-300">
+            <div
+              class="absolute left-6 top-6 -translate-x-1/2 w-4 h-4 rounded-full bg-noir-900 border-2 border-amber-400 shadow-[0_0_15px_rgba(245,158,11,0.9)] group-hover:scale-125 transition-transform">
+            </div>
+            <div
+              class="glass-panel p-8 rounded-3xl border border-white/10 hover:border-amber-400/40 transition-all cursor-pointer tilt-card">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+                <div>
+                  <span class="text-xs font-mono text-amber-400 uppercase tracking-wider block mb-1">Hospitality
+                    Branding, Food Photography &amp; Campaigns</span>
+                  <h3 class="text-2xl font-bold text-white group-hover:text-amber-200 transition-colors">Graphic
+                    Designer</h3>
+                </div>
+                <span
+                  class="inline-flex items-center space-x-1.5 px-3.5 py-1.5 rounded-full glass-panel text-xs font-mono text-neutral-300 w-fit">
+                  <i data-lucide="building-2" class="w-3.5 h-3.5 text-amber-400"></i>
+                  <span>Food's Forest (Restaurant)</span>
+                </span>
+              </div>
+              <div class="space-y-2.5">
+                <div class="flex items-start space-x-2.5 text-xs sm:text-sm text-neutral-300"><i
+                    data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5"></i><span>Designed
+                    social media posts, menu layouts, promotional banners, and digital advertisements.</span></div>
+                <div class="flex items-start space-x-2.5 text-xs sm:text-sm text-neutral-300"><i
+                    data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5"></i><span>Created
+                    food photography edits, color correction, and visually appealing dish presentations.</span></div>
+                <div class="flex items-start space-x-2.5 text-xs sm:text-sm text-neutral-300"><i
+                    data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5"></i><span>Developed
+                    branding materials following the restaurant's visual identity.</span></div>
+                <div class="flex items-start space-x-2.5 text-xs sm:text-sm text-neutral-300"><i
+                    data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5"></i><span>Designed
+                    campaign creatives for offers, seasonal promotions, and new menu launches.</span></div>
+                <div class="flex items-start space-x-2.5 text-xs sm:text-sm text-neutral-300"><i
+                    data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5"></i><span>Produced
+                    print-ready files for menus, table tents, flyers, and outdoor advertisements.</span></div>
+                <div class="flex items-start space-x-2.5 text-xs sm:text-sm text-neutral-300"><i
+                    data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5"></i><span>Worked
+                    closely with the marketing team to maintain consistent design quality.</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Experience 4: Graphic Designer — Digital IT Agency -->
+          <div class="relative pl-16 group reveal-left delay-400">
+            <div
+              class="absolute left-6 top-6 -translate-x-1/2 w-4 h-4 rounded-full bg-noir-900 border-2 border-amber-400 shadow-[0_0_15px_rgba(245,158,11,0.9)] group-hover:scale-125 transition-transform">
+            </div>
+            <div
+              class="glass-panel p-8 rounded-3xl border border-white/10 hover:border-amber-400/40 transition-all cursor-pointer tilt-card">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+                <div>
+                  <span class="text-xs font-mono text-amber-400 uppercase tracking-wider block mb-1">Digital Marketing
+                    Graphics &amp; Social Campaigns</span>
+                  <h3 class="text-2xl font-bold text-white group-hover:text-amber-200 transition-colors">Graphic
+                    Designer</h3>
+                </div>
+                <span
+                  class="inline-flex items-center space-x-1.5 px-3.5 py-1.5 rounded-full glass-panel text-xs font-mono text-neutral-300 w-fit">
+                  <i data-lucide="building-2" class="w-3.5 h-3.5 text-amber-400"></i>
+                  <span>Digital IT Agency</span>
+                </span>
+              </div>
+              <div class="space-y-2.5">
+                <div class="flex items-start space-x-2.5 text-xs sm:text-sm text-neutral-300"><i
+                    data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5"></i><span>Designed
+                    creative social media posts for digital marketing campaigns.</span></div>
+                <div class="flex items-start space-x-2.5 text-xs sm:text-sm text-neutral-300"><i
+                    data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5"></i><span>Created
+                    engaging visual content for different social media platforms.</span></div>
+                <div class="flex items-start space-x-2.5 text-xs sm:text-sm text-neutral-300"><i
+                    data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5"></i><span>Designed
+                    promotional graphics and branded social media creatives.</span></div>
+                <div class="flex items-start space-x-2.5 text-xs sm:text-sm text-neutral-300"><i
+                    data-lucide="check-circle-2"
+                    class="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5"></i><span>Maintained visual consistency and
+                    followed brand guidelines.</span></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Mobile Timeline -->
+      <div class="space-y-6 sm:hidden">
+        <div class="glass-panel p-6 rounded-3xl border border-white/10 space-y-3 reveal-init">
+          <span class="text-[11px] font-mono text-amber-400 uppercase block">Computer Science Instruction</span>
+          <h3 class="text-lg font-bold text-white">Junior Instructor in Computer Science</h3>
+          <div class="text-xs font-mono text-neutral-400">Dagonbhuiyan Science And Engineering Institute</div>
+          <p class="text-xs text-neutral-300 font-light">Developed computer fundamentals curriculum and mentored
+            students in problem-solving.</p>
+        </div>
+        <div class="glass-panel p-6 rounded-3xl border border-white/10 space-y-3 reveal-init">
+          <span class="text-[11px] font-mono text-amber-400 uppercase block">Retail &amp; Super Shop</span>
+          <h3 class="text-lg font-bold text-white">Graphic Designer</h3>
+          <div class="text-xs font-mono text-neutral-400">Family Shopping (Super Shop)</div>
+          <p class="text-xs text-neutral-300 font-light">Created social media posts, T-shirt designs, video edits, and
+            promotional campaign materials.</p>
+        </div>
+        <div class="glass-panel p-6 rounded-3xl border border-white/10 space-y-3 reveal-init">
+          <span class="text-[11px] font-mono text-amber-400 uppercase block">Restaurant Visual Identity</span>
+          <h3 class="text-lg font-bold text-white">Graphic Designer</h3>
+          <div class="text-xs font-mono text-neutral-400">Food's Forest (Restaurant)</div>
+          <p class="text-xs text-neutral-300 font-light">Designed menus, food photography styling, and campaign visuals
+            across print and digital media.</p>
+        </div>
+        <div class="glass-panel p-6 rounded-3xl border border-white/10 space-y-3 reveal-init">
+          <span class="text-[11px] font-mono text-amber-400 uppercase block">Digital Marketing Agency</span>
+          <h3 class="text-lg font-bold text-white">Graphic Designer</h3>
+          <div class="text-xs font-mono text-neutral-400">Digital IT Agency</div>
+          <p class="text-xs text-neutral-300 font-light">Crafted engaging social media creatives and promotional
+            graphics adhering to brand guidelines.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- 8. EDUCATION & CERTIFICATIONS (Slide-In Entrance)         -->
+  <!-- ========================================================= -->
+  <section id="education"
+    class="relative w-full py-28 px-6 sm:px-10 md:px-16 lg:px-24 bg-[#080b0e] z-20 border-t border-white/5 overflow-hidden">
+    <div class="max-w-7xl mx-auto">
+      <div
+        class="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-8 border-b border-white/10 gap-6 reveal-init">
+        <div>
+          <div
+            class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full glass-panel text-amber-400 text-xs font-mono tracking-widest uppercase mb-4">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+            <span>Academic &amp; Professional Growth</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-[1.15]">
+            Education &amp; <br />
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-200 to-amber-500">
+              Certifications.
+            </span>
+          </h2>
+        </div>
+
+        <p class="max-w-md text-neutral-400 text-sm sm:text-base font-light leading-relaxed">
+          Continuous dedication to learning, formal design theory, and mastering
+          emerging industry software standards.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+        <!-- Academic Qualifications (Slide-in from Left) -->
+        <div class="lg:col-span-7 space-y-6 reveal-left">
+          <div class="flex items-center space-x-2.5 text-xs font-mono uppercase tracking-widest text-neutral-400 mb-2">
+            <i data-lucide="graduation-cap" class="w-4 h-4 text-amber-400"></i>
+            <span>Academic Qualifications</span>
+          </div>
+
+          <!-- Diploma in Engineering -->
+          <div
+            class="glass-panel p-8 rounded-3xl border border-white/10 hover:border-amber-400/40 transition-all tilt-card cursor-pointer">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+              <h3 class="text-xl font-bold text-white">Diploma in Engineering</h3>
+              <span
+                class="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-amber-400/10 border border-amber-400/30 text-amber-300 text-xs font-mono w-fit">
+                <span>Computer Science Technology</span>
+              </span>
+            </div>
+            <div class="text-sm font-mono text-amber-400 mb-2">Dagonbhuiyan Science And Engineering Institute</div>
+            <p class="text-neutral-400 text-xs sm:text-sm font-light leading-relaxed">
+              Major in Computer Science Technology focusing on computer programming, database systems, web architecture,
+              and
+              digital engineering principles.
+            </p>
+          </div>
+
+          <!-- Secondary School Certificate (SSC) -->
+          <div
+            class="glass-panel p-8 rounded-3xl border border-white/10 hover:border-amber-400/40 transition-all tilt-card cursor-pointer">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+              <h3 class="text-xl font-bold text-white">Secondary School Certificate (SSC)</h3>
+              <span
+                class="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-amber-400/10 border border-amber-400/30 text-amber-300 text-xs font-mono w-fit">
+                <span>Science</span>
+              </span>
+            </div>
+            <div class="text-sm font-mono text-amber-400 mb-2">Dudmukha High School</div>
+            <p class="text-neutral-400 text-xs sm:text-sm font-light leading-relaxed">
+              Science concentration establishing strong foundational analytic thinking, scientific problem solving, and
+              mathematics.
+            </p>
+          </div>
+        </div>
+
+        <!-- Training Programs & Certifications (Slide-in from Right) -->
+        <div class="lg:col-span-5 space-y-4 reveal-right">
+          <div class="flex items-center space-x-2.5 text-xs font-mono uppercase tracking-widest text-neutral-400 mb-2">
+            <i data-lucide="award" class="w-4 h-4 text-amber-400"></i>
+            <span>Professional Training Programs</span>
+          </div>
+
+          <!-- Training 1: Her Power Project -->
+          <div
+            class="glass-panel p-6 rounded-3xl border border-white/10 hover:border-amber-400/40 transition-all tilt-card cursor-pointer">
+            <div class="flex items-center justify-between text-xs font-mono text-amber-400 mb-1">
+              <span>Dagonbhuiyan Science And Engineering Institute</span>
+              <span>2024</span>
+            </div>
+            <h4 class="text-base font-bold text-white mb-1">Her Power Project</h4>
+            <div class="text-xs text-neutral-400 font-light mb-1">Field: Graphics Design • Duration: 6 Months</div>
+            <div class="text-[11px] font-mono text-amber-300/80">Government Initiative for Women Empowerment in IT</div>
+          </div>
+
+          <!-- Training 2: Industrial Attachment / Internship -->
+          <div
+            class="glass-panel p-6 rounded-3xl border border-white/10 hover:border-amber-400/40 transition-all tilt-card cursor-pointer">
+            <div class="flex items-center justify-between text-xs font-mono text-amber-400 mb-1">
+              <span>Twoinsoft Technology IT Institute</span>
+              <span>2023</span>
+            </div>
+            <h4 class="text-base font-bold text-white mb-1">Industrial Attachment / Internship</h4>
+            <div class="text-xs text-neutral-400 font-light mb-1">Field: Graphic Design &amp; Video Editing • Duration:
+              3 Months</div>
+            <div class="text-[11px] font-mono text-amber-300/80">Hands-on Agency Workflow &amp; Production</div>
+          </div>
+
+          <!-- Training 3: LEDP -->
+          <div
+            class="glass-panel p-6 rounded-3xl border border-white/10 hover:border-amber-400/40 transition-all tilt-card cursor-pointer">
+            <div class="flex items-center justify-between text-xs font-mono text-amber-400 mb-1">
+              <span>Project Office, Dhaka</span>
+              <span>2020</span>
+            </div>
+            <h4 class="text-base font-bold text-white mb-1">Learning and Earning Development Project (LEDP)</h4>
+            <div class="text-xs text-neutral-400 font-light mb-1">Course: Graphic Design & Freelancing • Duration: 200
+              Hours (50 Days)
+            </div>
+            <div class="text-[11px] font-mono text-amber-300/80">ICT Division Professional Training</div>
+          </div>
+
+          <!-- Training 4: Basic Trade Course -->
+          <div
+            class="glass-panel p-6 rounded-3xl border border-white/10 hover:border-amber-400/40 transition-all tilt-card cursor-pointer">
+            <div class="flex items-center justify-between text-xs font-mono text-amber-400 mb-1">
+              <span>Dagonbhuiyan Science And Engineering Institute</span>
+              <span>2019</span>
+            </div>
+            <h4 class="text-base font-bold text-white mb-1">Basic Trade Course</h4>
+            <div class="text-xs text-neutral-400 font-light mb-1">Course: Computer Application • Duration: 360 Hours (6
+              Months)</div>
+            <div class="text-[11px] font-mono text-amber-300/80">Bangladesh Technical Education Board</div>
+          </div>
+
+          <!-- Training 5: Freelancing Course -->
+          <div
+            class="glass-panel p-6 rounded-3xl border border-white/10 hover:border-amber-400/40 transition-all tilt-card cursor-pointer">
+            <div class="flex items-center justify-between text-xs font-mono text-amber-400 mb-1">
+              <span>E- Learning & Earning Institute</span>
+              <span>2025</span>
+            </div>
+            <h4 class="text-base font-bold text-white mb-1">Freelancing (Digital Marketing) Course</h4>
+            <div class="text-xs text-neutral-400 font-light mb-1">Field: Freelancing Marketplace Strategies</div>
+            <div class="text-[11px] font-mono text-amber-300/80">Department of Youth Development &amp; (DYD))
+            </div>
+          </div>
+
+          <!-- Training 6: Artifial Intelligence (AI) Course -->
+          <div
+            class="glass-panel p-6 rounded-3xl border border-white/10 hover:border-amber-400/40 transition-all tilt-card cursor-pointer">
+            <div class="flex items-center justify-between text-xs font-mono text-amber-400 mb-1">
+              <span>E- Learning & Earning Institute</span>
+              <span>2026</span>
+            </div>
+            <h4 class="text-base font-bold text-white mb-1">Artifial Intelligence (AI) Course</h4>
+            <div class="text-xs text-neutral-400 font-light mb-1">Field: Artifial Intelligence (AI) Strategies</div>
+            <div class="text-[11px] font-mono text-amber-300/80">Department of Youth Development &amp; (DYD))
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- 9. REVIEWS SECTION (Interactive Fade Slider)               -->
+  <!-- ========================================================= -->
+  <section id="reviews"
+    class="relative w-full py-28 px-6 sm:px-10 md:px-16 lg:px-24 bg-[#080b0e] z-20 border-t border-white/5 overflow-hidden">
+    <div class="max-w-7xl mx-auto">
+      <div
+        class="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-8 border-b border-white/10 gap-6 reveal-init">
+        <div>
+          <div
+            class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full glass-panel text-amber-400 text-xs font-mono tracking-widest uppercase mb-4">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+            <span>Client Endorsements</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-[1.15]">
+            What Collaborators Say <br />
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-200 to-amber-500">
+              About Working Together.
+            </span>
+          </h2>
+        </div>
+
+        <div class="flex items-center space-x-3">
+          <button onclick="prevTestimonial()" aria-label="Previous Testimonial"
+            class="p-3 rounded-full glass-panel text-neutral-300 hover:text-white hover:border-amber-400/40 transition-colors">
+            <i data-lucide="chevron-left" class="w-5 h-5"></i>
+          </button>
+          <button onclick="nextTestimonial()" aria-label="Next Testimonial"
+            class="p-3 rounded-full glass-panel text-neutral-300 hover:text-white hover:border-amber-400/40 transition-colors">
+            <i data-lucide="chevron-right" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Testimonial Slider Card with Smooth Crossfade -->
+      <div id="testimonial-slider" class="relative min-h-[300px] max-w-4xl mx-auto mb-8 reveal-scale">
+        <div id="testimonial-card-el"
+          class="glass-panel-glow p-8 sm:p-12 rounded-3xl border border-white/10 flex flex-col justify-between transition-all duration-500 opacity-100">
+          <div>
+            <div class="flex items-center justify-between mb-8">
+              <div
+                class="w-12 h-12 rounded-2xl bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-400">
+                <i data-lucide="quote" class="w-6 h-6"></i>
+              </div>
+              <div class="flex items-center space-x-1 text-amber-400">
+                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              </div>
+            </div>
+
+            <div id="testimonial-type" class="text-xs font-mono text-amber-400 uppercase tracking-wider mb-4">
+              Brand Identity &amp; Graphic Design
+            </div>
+
+            <p id="testimonial-quote"
+              class="text-neutral-200 text-base sm:text-xl md:text-2xl leading-relaxed font-light mb-10 italic">
+              "[Editable Client Testimonial Placeholder: \"Shamima transformed our entire brand visual identity with
+              exceptional creativity and prompt communication. Her graphic and web design work exceeded our
+              expectations.\"]"
+            </p>
+          </div>
+
+          <div class="pt-6 border-t border-white/10 flex items-center space-x-4">
+            <div
+              class="w-12 h-12 rounded-full bg-white/[0.05] border border-white/10 flex items-center justify-center text-neutral-400 flex-shrink-0">
+              <i data-lucide="user" class="w-6 h-6 text-amber-400"></i>
+            </div>
+            <div>
+              <h4 id="testimonial-author" class="text-base font-bold text-white">[Client Name Placeholder 1]</h4>
+              <div id="testimonial-role" class="text-xs sm:text-sm text-neutral-400 font-light">[Role / Company
+                Placeholder 1]</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pagination Indicators -->
+      <div class="flex justify-center items-center space-x-3">
+        <button onclick="setTestimonial(0)" id="t-dot-0"
+          class="h-2 rounded-full transition-all duration-300 w-8 bg-amber-400 shadow-[0_0_10px_rgba(245,158,11,0.8)]"></button>
+        <button onclick="setTestimonial(1)" id="t-dot-1"
+          class="h-2 rounded-full transition-all duration-300 w-2 bg-white/20 hover:bg-white/40"></button>
+        <button onclick="setTestimonial(2)" id="t-dot-2"
+          class="h-2 rounded-full transition-all duration-300 w-2 bg-white/20 hover:bg-white/40"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- 10. CONTACT SECTION (Subtle Floating Effects)             -->
+  <!-- ========================================================= -->
+  <section id="contact"
+    class="relative w-full py-28 px-6 sm:px-10 md:px-16 lg:px-24 bg-[#080b0e] z-20 border-t border-white/5 overflow-hidden">
+
+    <!-- Ambient Floating Orbs -->
+    <div
+      class="absolute top-1/3 left-1/4 w-[500px] h-[350px] bg-amber-500/10 rounded-full blur-[150px] pointer-events-none animate-pulse">
+    </div>
+    <div
+      class="absolute bottom-10 right-1/4 w-[400px] h-[300px] bg-amber-600/10 rounded-full blur-[140px] pointer-events-none animate-pulse"
+      style="animation-duration: 6s;"></div>
+
+    <div class="max-w-6xl mx-auto relative z-10">
+
+      <div class="text-center max-w-3xl mx-auto mb-16 reveal-init">
+        <div
+          class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full glass-panel text-amber-400 text-xs font-mono tracking-widest uppercase mb-6">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+          <span>Initiate Collaboration</span>
+        </div>
+
+        <h2 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight leading-[1.05] mb-6">
+          Let's Create Something <br />
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-200 to-amber-500">
+            Extraordinary Together.
+          </span>
+        </h2>
+
+        <p class="text-neutral-400 text-base sm:text-lg font-light leading-relaxed mb-8">
+          Have a project in Graphic Design, Web Design, or Video Creation &amp; Editing?
+          I am available for freelance commissions, long-term contracts, and creative collaborations.
+        </p>
+
+        <!-- Direct Email Pill -->
+        <div
+          class="inline-flex flex-col sm:flex-row items-center gap-3 p-2 rounded-full glass-panel-glow border border-white/10 max-w-full hover:scale-102 transition-transform">
+          <a href="mailto:shtanjin24@gmail.com"
+            class="flex items-center space-x-3 px-5 py-2.5 text-neutral-200 hover:text-white font-mono text-sm sm:text-base">
+            <i data-lucide="mail" class="w-4 h-4 text-amber-400"></i>
+            <span>shtanjin24@gmail.com</span>
+          </a>
+          <button onclick="copyEmail()"
+            class="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-5 py-2.5 rounded-full bg-amber-400 text-slate-950 font-semibold text-xs uppercase font-mono tracking-wider hover:bg-amber-300 shadow-amber-glow">
+            <i data-lucide="copy" class="w-4 h-4"></i>
+            <span id="copy-btn-text">Copy Email</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+
+        <!-- Profile Meta (Slide in from Left) -->
+        <div class="lg:col-span-5 glass-panel p-8 sm:p-10 rounded-3xl border border-white/10 space-y-8 reveal-left">
+          <div>
+            <span class="text-xs font-mono text-amber-400 uppercase tracking-widest block mb-2">Designer Identity</span>
+            <h3 class="text-2xl font-bold text-white mb-2">Shamima Tanjin</h3>
+            <p class="text-sm text-neutral-300 font-light leading-relaxed">
+              Creative Designer | Web Designer | Video Creator &amp; Editor
+            </p>
+            <p class="text-xs font-mono text-amber-400/90 mt-2">
+              &ldquo;Turning Ideas Into Creative Digital Experiences.&rdquo;
+            </p>
+          </div>
+
+          <div class="space-y-4 pt-6 border-t border-white/5">
+            <div>
+              <span class="text-xs font-mono text-neutral-400 uppercase block mb-1">Direct Email</span>
+              <a href="mailto:shtanjin24@gmail.com"
+                class="text-sm font-mono text-white hover:text-amber-400 transition-colors">shtanjin24@gmail.com</a>
+            </div>
+            <div>
+              <span class="text-xs font-mono text-neutral-400 uppercase block mb-1">Experience</span>
+              <span class="text-sm font-mono text-amber-400">5+ Years Professional Creative Experience</span>
+            </div>
+            <div>
+              <span class="text-xs font-mono text-neutral-400 uppercase block mb-1">Status</span>
+              <span class="inline-flex items-center space-x-2 text-xs font-mono text-emerald-400">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span>Available for New Projects</span>
+              </span>
+            </div>
+          </div>
+
+          <div class="pt-6 border-t border-white/5">
+            <span class="text-xs font-mono text-neutral-400 uppercase tracking-wider block mb-4">Social Profiles
+              [Editable Links]</span>
+            <div class="flex flex-wrap gap-2.5">
+              <a href="https://linkedin.com/in/[Your-Profile]" target="_blank"
+                class="px-3.5 py-2 rounded-full glass-panel text-xs font-mono text-neutral-300 hover:text-white hover:border-amber-400/40 transition-colors">LinkedIn</a>
+              <a href="https://youtube.com/@[Your-Channel]" target="_blank"
+                class="px-3.5 py-2 rounded-full glass-panel text-xs font-mono text-neutral-300 hover:text-white hover:border-amber-400/40 transition-colors">YouTube</a>
+              <a href="https://instagram.com/[Your-Handle]" target="_blank"
+                class="px-3.5 py-2 rounded-full glass-panel text-xs font-mono text-neutral-300 hover:text-white hover:border-amber-400/40 transition-colors">Instagram</a>
+              <a href="https://twitter.com/[Your-Handle]" target="_blank"
+                class="px-3.5 py-2 rounded-full glass-panel text-xs font-mono text-neutral-300 hover:text-white hover:border-amber-400/40 transition-colors">Twitter
+                / X</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form (Slide in from Right) -->
+        <div class="lg:col-span-7 glass-panel p-8 sm:p-10 rounded-3xl border border-white/10 reveal-right">
+          <h3 class="text-2xl font-bold text-white mb-2">Send a Direct Message</h3>
+          <p class="text-xs sm:text-sm text-neutral-400 font-light mb-8">
+            Fill out the form below to outline your project requirements, budget, or timeline.
+          </p>
+
+          <form onsubmit="handleFormSubmit(event)" class="space-y-5">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div>
+                <label class="block text-xs font-mono text-neutral-300 uppercase mb-2">Your Name *</label>
+                <input id="form-name" type="text" required placeholder="e.g. John Doe"
+                  class="w-full px-4 py-3 rounded-2xl bg-white/[0.03] border border-white/10 text-white placeholder-neutral-500 text-sm focus:outline-none focus:border-amber-400/80 transition-colors">
+              </div>
+              <div>
+                <label class="block text-xs font-mono text-neutral-300 uppercase mb-2">Your Email *</label>
+                <input id="form-email" type="email" required placeholder="e.g. john@company.com"
+                  class="w-full px-4 py-3 rounded-2xl bg-white/[0.03] border border-white/10 text-white placeholder-neutral-500 text-sm focus:outline-none focus:border-amber-400/80 transition-colors">
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-mono text-neutral-300 uppercase mb-2">Subject *</label>
+              <input id="form-subject" type="text" required placeholder="e.g. Graphic Branding &amp; Web Design Project"
+                class="w-full px-4 py-3 rounded-2xl bg-white/[0.03] border border-white/10 text-white placeholder-neutral-500 text-sm focus:outline-none focus:border-amber-400/80 transition-colors">
+            </div>
+
+            <div>
+              <label class="block text-xs font-mono text-neutral-300 uppercase mb-2">Project Message *</label>
+              <textarea id="form-message" rows="5" required
+                placeholder="Tell Shamima about your project goals, scope, and target deadline..."
+                class="w-full px-4 py-3 rounded-2xl bg-white/[0.03] border border-white/10 text-white placeholder-neutral-500 text-sm focus:outline-none focus:border-amber-400/80 transition-colors resize-none"></textarea>
+            </div>
+
+            <div id="form-feedback"
+              class="hidden p-3.5 rounded-2xl bg-amber-400/10 border border-amber-400/30 text-amber-300 text-xs font-mono">
+            </div>
+
+            <button type="submit"
+              class="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-8 py-3.5 rounded-full bg-amber-400 text-slate-950 font-bold text-xs uppercase font-mono tracking-widest hover:bg-amber-300 transition-all shadow-[0_0_25px_rgba(245,158,11,0.4)] hover:scale-102 active:scale-98">
+              <i data-lucide="send" class="w-4 h-4"></i>
+              <span>Send Message</span>
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- 11. FOOTER (Smooth Upward Reveal)                         -->
+  <!-- ========================================================= -->
+  <footer
+    class="w-full bg-[#050709] border-t border-white/5 pt-16 pb-12 px-6 sm:px-10 md:px-16 lg:px-24 text-neutral-400 text-xs font-mono relative z-20 reveal-init">
+    <div class="max-w-7xl mx-auto space-y-12">
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start justify-between pb-12 border-b border-white/5">
+
+        <div class="md:col-span-5 space-y-3">
+          <div class="flex items-center space-x-2.5">
+            <div
+              class="w-8 h-8 rounded-lg bg-amber-400 flex items-center justify-center font-bold text-slate-950 font-mono text-sm">
+              ST</div>
+            <span class="text-lg font-bold text-white tracking-tight">SHAMIMA TANJIN</span>
+          </div>
+          <p class="text-amber-400 font-mono text-xs">
+            &ldquo;Turning Ideas Into Creative Digital Experiences.&rdquo;
+          </p>
+          <p class="text-neutral-400 text-xs font-light max-w-sm">
+            Creative Designer &amp; Digital Content Creator with 5+ years of specialized
+            excellence in Graphic Design, Web Design, and Video Creation &amp; Editing.
+          </p>
+        </div>
+
+        <div class="md:col-span-4 space-y-3">
+          <span class="text-xs uppercase tracking-widest text-neutral-300 font-mono block">Quick Navigation</span>
+          <div class="grid grid-cols-2 gap-2">
+            <a href="#home" onclick="smoothNav(event, 'home')"
+              class="text-xs font-mono text-neutral-400 hover:text-amber-400 transition-colors">Home</a>
+            <a href="#about" onclick="smoothNav(event, 'about')"
+              class="text-xs font-mono text-neutral-400 hover:text-amber-400 transition-colors">About</a>
+            <a href="#services" onclick="smoothNav(event, 'services')"
+              class="text-xs font-mono text-neutral-400 hover:text-amber-400 transition-colors">Services</a>
+            <a href="#skills" onclick="smoothNav(event, 'skills')"
+              class="text-xs font-mono text-neutral-400 hover:text-amber-400 transition-colors">Skills</a>
+            <a href="#portfolio" onclick="smoothNav(event, 'portfolio')"
+              class="text-xs font-mono text-neutral-400 hover:text-amber-400 transition-colors">Portfolio</a>
+            <a href="#experience-timeline" onclick="smoothNav(event, 'experience-timeline')"
+              class="text-xs font-mono text-neutral-400 hover:text-amber-400 transition-colors">Experience</a>
+            <a href="#education" onclick="smoothNav(event, 'education')"
+              class="text-xs font-mono text-neutral-400 hover:text-amber-400 transition-colors">Education</a>
+            <a href="#reviews" onclick="smoothNav(event, 'reviews')"
+              class="text-xs font-mono text-neutral-400 hover:text-amber-400 transition-colors">Reviews</a>
+            <a href="#contact" onclick="smoothNav(event, 'contact')"
+              class="text-xs font-mono text-neutral-400 hover:text-amber-400 transition-colors">Contact</a>
+          </div>
+        </div>
+
+        <div class="md:col-span-3 space-y-4 md:text-right flex flex-col md:items-end justify-between">
+          <div>
+            <span class="text-xs uppercase tracking-widest text-neutral-300 font-mono block mb-1">Direct
+              Inquiries</span>
+            <a href="mailto:shtanjin24@gmail.com"
+              class="text-amber-400 hover:text-amber-300 transition-colors block text-xs font-mono">shtanjin24@gmail.com</a>
+          </div>
+
+          <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+            class="inline-flex items-center space-x-2 px-4 py-2 rounded-full glass-panel text-neutral-300 hover:text-white hover:border-amber-400/40 transition-all text-xs font-mono group hover:scale-102">
+            <span>Back to Top</span>
+            <i data-lucide="arrow-up"
+              class="w-3.5 h-3.5 text-amber-400 group-hover:-translate-y-0.5 transition-transform"></i>
+          </button>
+        </div>
+
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
+        <div class="flex items-center space-x-2 text-[11px]">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span>OPERATIONAL</span>
+          <span class="text-white/20">•</span>
+          <span id="footer-time">UTC --:--:--</span>
+        </div>
+
+        <div class="text-[11px] text-center sm:text-right text-neutral-500">
+          © 2026 SHAMIMA TANJIN. ALL RIGHTS RESERVED.
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ========================================================= -->
+  <!-- HIGH PERFORMANCE SCRIPTS & SMOOTH ANIMATION CHOREOGRAPHY  -->
+  <!-- ========================================================= -->
+  <script>
+    lucide.createIcons();
+
+    // 1. Smooth Navigation with Offset Easing & Active Link Updates
+    const navItems = [
+      { id: 'home', navId: 'nav-home' },
+      { id: 'about', navId: 'nav-about' },
+      { id: 'services', navId: 'nav-services' },
+      { id: 'skills', navId: 'nav-skills' },
+      { id: 'portfolio', navId: 'nav-portfolio' },
+      { id: 'experience-timeline', navId: 'nav-experience-timeline' },
+      { id: 'education', navId: 'nav-education' },
+      { id: 'reviews', navId: 'nav-reviews' },
+      { id: 'contact', navId: 'nav-contact' }
+    ];
+
+    function smoothNav(e, targetId) {
+      if (e) e.preventDefault();
+      const el = document.getElementById(targetId);
+      if (!el) return;
+
+      const mobileMenu = document.getElementById('mobile-menu');
+      if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+        toggleMobileMenu();
+      }
+
+      const navHeight = 85;
+      const elementPosition = el.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - navHeight;
+
+      window.scrollTo({
+        top: Math.max(0, offsetPosition),
+        behavior: 'smooth'
+      });
+
+      updateActiveNav(targetId);
+    }
+
+    function updateActiveNav(activeId) {
+      navItems.forEach(item => {
+        const navEl = document.getElementById(item.navId);
+        if (!navEl) return;
+        if (item.id === activeId) {
+          navEl.className = "nav-item relative px-3 py-1.5 text-xs font-mono uppercase tracking-wider rounded-full transition-all text-amber-300 bg-amber-400/15 border border-amber-400/30 font-semibold shadow-[0_0_15px_rgba(245,158,11,0.2)]";
+        } else {
+          navEl.className = "nav-item relative px-3 py-1.5 text-xs font-mono uppercase tracking-wider rounded-full transition-all text-neutral-300 hover:text-white";
+        }
+      });
+    }
+
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+      menu.classList.toggle('flex');
+    }
+
+    // 2. Intersection Observer for Scroll Reveals
+    const observerOptions = {
+      root: null,
+      rootMargin: "0px 0px -80px 0px",
+      threshold: 0.12
+    };
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+
+          // Trigger timeline line animation specifically when in view
+          if (entry.target.id === 'experience-timeline') {
+            const line = document.getElementById('timeline-line-el');
+            if (line) line.classList.add('drawn');
+          }
+
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal-init, .reveal-left, .reveal-right, .reveal-scale, #experience-timeline').forEach(el => {
+      revealObserver.observe(el);
+    });
+
+    // 3. Scroll Spy for Dynamic Active Link Highlight
+    window.addEventListener('scroll', () => {
+      const scrollPos = window.scrollY + 150;
+      for (let i = navItems.length - 1; i >= 0; i--) {
+        const sec = document.getElementById(navItems[i].id);
+        if (sec && scrollPos >= sec.offsetTop) {
+          updateActiveNav(navItems[i].id);
+          break;
+        }
+      }
+    }, { passive: true });
+
+    // 4. Testimonials Interactive Slider
+    const testimonialData = [
+      {
+        quote: "\"[Editable Client Testimonial Placeholder: \\\"Shamima transformed our entire brand visual identity with exceptional creativity and prompt communication. Her graphic and web design work exceeded our expectations.\\\"]\"",
+        type: "Brand Identity & Graphic Design",
+        author: "[Client Name Placeholder 1]",
+        role: "[Founder / Marketing Director / Client Title 1]"
+      },
+      {
+        quote: "\"[Editable Client Testimonial Placeholder: \\\"Working with Shamima on our video editing and responsive web project was seamless. She delivers high-retention cuts and modern aesthetics on schedule.\\\"]\"",
+        type: "Web Design & Video Creation",
+        author: "[Client Name Placeholder 2]",
+        role: "[Creative Producer / Agency Lead 2]"
+      },
+      {
+        quote: "\"[Editable Client Testimonial Placeholder: \\\"The marketing creatives and promotional video reels Shamima produced generated our highest social engagement to date. Highly recommended!\\\"]\"",
+        type: "Social Media Design & Video Cuts",
+        author: "[Client Name Placeholder 3]",
+        role: "[E-Commerce Brand Manager 3]"
+      }
+    ];
+
+    let currentTestimonialIdx = 0;
+    function setTestimonial(idx) {
+      currentTestimonialIdx = idx;
+      const card = document.getElementById('testimonial-card-el');
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(15px) scale(0.98)';
+
+      setTimeout(() => {
+        document.getElementById('testimonial-quote').textContent = testimonialData[idx].quote;
+        document.getElementById('testimonial-type').textContent = testimonialData[idx].type;
+        document.getElementById('testimonial-author').textContent = testimonialData[idx].author;
+        document.getElementById('testimonial-role').textContent = testimonialData[idx].role;
+
+        [0, 1, 2].forEach(i => {
+          const dot = document.getElementById(`t-dot-${i}`);
+          if (dot) {
+            dot.className = (i === idx)
+              ? "h-2 rounded-full transition-all duration-300 w-8 bg-amber-400 shadow-[0_0_10px_rgba(245,158,11,0.8)]"
+              : "h-2 rounded-full transition-all duration-300 w-2 bg-white/20 hover:bg-white/40";
+          }
+        });
+
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0) scale(1)';
+      }, 250);
+    }
+
+    function nextTestimonial() {
+      const next = (currentTestimonialIdx + 1) % testimonialData.length;
+      setTestimonial(next);
+    }
+
+    function prevTestimonial() {
+      const prev = currentTestimonialIdx === 0 ? testimonialData.length - 1 : currentTestimonialIdx - 1;
+      setTestimonial(prev);
+    }
+
+    // 5. Canvas Scrolly Engine
+    const TOTAL_FRAMES = 75;
+    const canvas = document.getElementById('scrolly-canvas');
+    const ctx = canvas.getContext('2d', { alpha: false });
+    const homeSection = document.getElementById('home');
+
+    const preloader = document.getElementById('preloader');
+    const preloaderText = document.getElementById('preloader-text');
+    const preloaderBar = document.getElementById('preloader-bar');
+    const hudFrame = document.getElementById('hud-frame');
+    const hudScrub = document.getElementById('hud-scrub');
+
+    const sec1 = document.getElementById('section-1');
+    const sec2 = document.getElementById('section-2');
+    const sec3 = document.getElementById('section-3');
+    const sec4 = document.getElementById('section-4');
+
+    const images = [];
+    let loadedCount = 0;
+    let currentFrame = 0;
+
+    function getFrameSrc(index) {
+      const padded = String(index).padStart(3, '0');
+      return `public/sequence/frame_${padded}.webp`;
+    }
+
+    function fallbackFrameSrc(index) {
+      const padded = String(index).padStart(3, '0');
+      return `frame_${padded}.webp`;
+    }
+
+    function renderFrame(index) {
+      const clamped = Math.max(0, Math.min(index, TOTAL_FRAMES - 1));
+      let img = images[clamped];
+
+      if (!img || !img.complete || img.naturalWidth === 0) {
+        img = images[0];
+      }
+
+      if (!img || !img.complete || img.naturalWidth === 0) return;
+
+      const cw = canvas.width;
+      const ch = canvas.height;
+      const iw = img.naturalWidth;
+      const ih = img.naturalHeight;
+
+      const ratio = Math.max(cw / iw, ch / ih);
+      const dw = iw * ratio;
+      const dh = ih * ratio;
+      const ox = (cw - dw) / 2;
+      const oy = (ch - dh) / 2;
+
+      ctx.fillStyle = "#080b0e";
+      ctx.fillRect(0, 0, cw, ch);
+      ctx.drawImage(img, 0, 0, iw, ih, ox, oy, dw, dh);
+
+      currentFrame = clamped;
+
+      if (hudFrame) {
+        hudFrame.textContent = `FRAME ${String(clamped).padStart(2, '0')} / ${TOTAL_FRAMES - 1}`;
+      }
+      if (hudScrub) {
+        const pct = Math.round((clamped / (TOTAL_FRAMES - 1)) * 100);
+        hudScrub.textContent = `${pct}% SCRUB`;
+      }
+    }
+
+    function resizeCanvas() {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const w = window.innerWidth;
+      const h = window.innerHeight;
+
+      canvas.width = Math.floor(w * dpr);
+      canvas.height = Math.floor(h * dpr);
+      canvas.style.width = w + 'px';
+      canvas.style.height = h + 'px';
+
+      renderFrame(currentFrame);
+    }
+
+    let rafActive = false;
+    function updateScroll() {
+      const rect = homeSection.getBoundingClientRect();
+      const totalScrollable = rect.height - window.innerHeight;
+      const scrolled = -rect.top;
+      const progress = Math.max(0, Math.min(1, scrolled / totalScrollable));
+
+      const targetFrame = Math.min(Math.floor(progress * TOTAL_FRAMES), TOTAL_FRAMES - 1);
+      if (targetFrame !== currentFrame) {
+        renderFrame(targetFrame);
+      }
+
+      // Parallax text with 3D scale and translate
+      if (progress < 0.22) {
+        const p = progress / 0.22;
+        sec1.style.opacity = Math.max(0, 1 - p * 1.2);
+        sec1.style.transform = `translateY(${-p * 100}px) scale(${1 - p * 0.08})`;
+        sec1.style.pointerEvents = p > 0.15 ? 'none' : 'auto';
+      } else {
+        sec1.style.opacity = '0';
+        sec1.style.pointerEvents = 'none';
+      }
+
+      if (progress >= 0.18 && progress <= 0.50) {
+        let opacity = 0;
+        let translateY = 40;
+        if (progress < 0.28) {
+          const t = (progress - 0.18) / 0.10;
+          opacity = t;
+          translateY = (1 - t) * 60;
+        } else if (progress <= 0.40) {
+          opacity = 1;
+          translateY = 0;
+        } else {
+          const t = (progress - 0.40) / 0.10;
+          opacity = 1 - t;
+          translateY = -t * 60;
+        }
+        sec2.style.opacity = Math.max(0, Math.min(1, opacity));
+        sec2.style.transform = `translateY(${translateY}px)`;
+        sec2.style.pointerEvents = opacity > 0.5 ? 'auto' : 'none';
+      } else {
+        sec2.style.opacity = '0';
+        sec2.style.pointerEvents = 'none';
+      }
+
+      if (progress >= 0.50 && progress <= 0.82) {
+        let opacity = 0;
+        let translateY = 40;
+        if (progress < 0.60) {
+          const t = (progress - 0.50) / 0.10;
+          opacity = t;
+          translateY = (1 - t) * 60;
+        } else if (progress <= 0.72) {
+          opacity = 1;
+          translateY = 0;
+        } else {
+          const t = (progress - 0.72) / 0.10;
+          opacity = 1 - t;
+          translateY = -t * 60;
+        }
+        sec3.style.opacity = Math.max(0, Math.min(1, opacity));
+        sec3.style.transform = `translateY(${translateY}px)`;
+        sec3.style.pointerEvents = opacity > 0.5 ? 'auto' : 'none';
+      } else {
+        sec3.style.opacity = '0';
+        sec3.style.pointerEvents = 'none';
+      }
+
+      if (progress >= 0.82) {
+        const t = Math.min(1, (progress - 0.82) / 0.10);
+        sec4.style.opacity = t;
+        sec4.style.transform = `translateY(${(1 - t) * 30}px)`;
+        sec4.style.pointerEvents = 'auto';
+      } else {
+        sec4.style.opacity = '0';
+        sec4.style.pointerEvents = 'none';
+      }
+
+      rafActive = false;
+    }
+
+    function onScroll() {
+      if (!rafActive) {
+        rafActive = true;
+        requestAnimationFrame(updateScroll);
+      }
+    }
+
+    for (let i = 0; i < TOTAL_FRAMES; i++) {
+      const img = new Image();
+      img.src = getFrameSrc(i);
+
+      img.onload = () => {
+        loadedCount++;
+        const pct = Math.round((loadedCount / TOTAL_FRAMES) * 100);
+        preloaderText.textContent = `Buffering Shamima's Profile Sequence • ${pct}%`;
+        preloaderBar.style.width = pct + '%';
+
+        if (i === 0) {
+          resizeCanvas();
+          renderFrame(0);
+        }
+
+        if (loadedCount >= TOTAL_FRAMES) {
+          preloader.style.opacity = '0';
+          setTimeout(() => preloader.style.display = 'none', 700);
+          renderFrame(currentFrame);
+        }
+      };
+
+      img.onerror = () => {
+        img.src = fallbackFrameSrc(i);
+        img.onerror = () => {
+          loadedCount++;
+          if (loadedCount >= TOTAL_FRAMES) {
+            preloader.style.opacity = '0';
+            setTimeout(() => preloader.style.display = 'none', 700);
+          }
+        };
+      };
+
+      images.push(img);
+    }
+
+    window.addEventListener('resize', resizeCanvas, { passive: true });
+    window.addEventListener('scroll', onScroll, { passive: true });
+    resizeCanvas();
+
+    // 6. Portfolio Category Filtering with Smooth Scale Transitions
+    function filterPortfolio(cat) {
+      const cards = document.querySelectorAll('.portfolio-card');
+      const buttons = [
+        { id: 'btn-filter-all', cat: 'all' },
+        { id: 'btn-filter-social', cat: 'social' },
+        { id: 'btn-filter-promo', cat: 'promo' },
+        { id: 'btn-filter-campaign', cat: 'campaign' }
+      ];
+
+      buttons.forEach(b => {
+        const el = document.getElementById(b.id);
+        if (!el) return;
+        if (b.cat === cat) {
+          el.className = 'px-5 py-2.5 rounded-full text-xs font-mono bg-amber-400 text-slate-950 font-semibold shadow-[0_0_20px_rgba(245,158,11,0.4)] scale-105 transition-all';
+        } else {
+          el.className = 'px-5 py-2.5 rounded-full text-xs font-mono glass-panel text-neutral-300 hover:text-white transition-all';
+        }
+      });
+
+      cards.forEach(card => {
+        if (cat === 'all' || card.classList.contains(cat)) {
+          card.classList.remove('is-filtered-out');
+        } else {
+          card.classList.add('is-filtered-out');
+        }
+      });
+    }
+
+    // Call filterPortfolio('all') initially to guarantee all cards are visible
+    try {
+      filterPortfolio('all');
+    } catch (e) { }
+
+    // Lightbox Data & Controls
+    const portfolioGallery = [
+      {
+        src: 'social-media/anniversary-foods-forest.jpg',
+        fallbacks: 'Social%20Media%20design/anniversary-foods-forest.jpg|Social Media design/anniversary-foods-forest.jpg|social-media/anniversary-foods-forest.jpg|Social%20Media%20design/5th%20anniversary%20of%20FOODS%20FOREST%202.jpg|Social Media design/5th anniversary of FOODS FOREST 2.jpg|social-media/5th anniversary of FOODS FOREST 2.jpg|public/social-media/anniversary-foods-forest.jpg',
+        title: "5th Anniversary Festival Campaign",
+        client: "Food's Forest (Restaurant)",
+        desc: "Celebratory 5th-anniversary social media campaign poster designed for Food's Forest, featuring festive typography, discount highlights, and brand storytelling."
+      },
+      {
+        src: 'social-media/best-burger-in-town.jpg',
+        fallbacks: 'Social%20Media%20design/best-burger-in-town.jpg|Social Media design/best-burger-in-town.jpg|social-media/best-burger-in-town.jpg|Social%20Media%20design/best%20burger%20in%20the%20town.jpg|Social Media design/best burger in the town.jpg|social-media/best burger in the town.jpg|public/social-media/best-burger-in-town.jpg',
+        title: "Best Burger In The Town Promo",
+        client: "Food's Forest (Restaurant)",
+        desc: "Mouth-watering commercial social media poster emphasizing crispy textures, layered burger ingredients, vibrant color grading, and special promotion callout."
+      },
+      {
+        src: 'social-media/food-post-gourmet.jpg',
+        fallbacks: 'Social%20Media%20design/food-post-gourmet.jpg|Social Media design/food-post-gourmet.jpg|social-media/food-post-gourmet.jpg|Social%20Media%20design/Food%20Post.jpg|Social Media design/Food Post.jpg|social-media/Food Post.jpg|public/social-media/food-post-gourmet.jpg',
+        title: "Gourmet Culinary Showcase",
+        client: "Food's Forest (Restaurant)",
+        desc: "Artistic food presentation creative highlighting premium restaurant offerings with clean layout, dynamic lighting accents, and appetizing visual focus."
+      },
+      {
+        src: 'social-media/food-post-signature-feast.jpg',
+        fallbacks: 'Social%20Media%20design/food-post-signature-feast.jpg|Social Media design/food-post-signature-feast.jpg|social-media/food-post-signature-feast.jpg|Social%20Media%20design/Food%20Post2.jpg|Social Media design/Food Post2.jpg|social-media/Food Post2.jpg|public/social-media/food-post-signature-feast.jpg',
+        title: "Signature Feast & Dining Offer",
+        client: "Food's Forest (Restaurant)",
+        desc: "Special dining promotion creative designed for social feeds and digital boards, combining balanced typography with an appetizing multi-dish showcase."
+      },
+      {
+        src: 'social-media/food-post-crispy-delights.jpg',
+        fallbacks: 'Social%20Media%20design/food-post-crispy-delights.jpg|Social Media design/food-post-crispy-delights.jpg|social-media/food-post-crispy-delights.jpg|Social%20Media%20design/Food%20Post%203.jpg|Social Media design/Food Post 3.jpg|social-media/Food Post 3.jpg|public/social-media/food-post-crispy-delights.jpg',
+        title: "Crispy Specialty Delights",
+        client: "Food's Forest (Restaurant)",
+        desc: "Engaging snack and appetizer promotional creative highlighting crunch and flavor through rich background contrast and bold headline hierarchy."
+      },
+      {
+        src: 'social-media/food-post-chef-special.jpg',
+        fallbacks: 'Social%20Media%20design/food-post-chef-special.jpg|Social Media design/food-post-chef-special.jpg|social-media/food-post-chef-special.jpg|Social%20Media%20design/Food%20Post4.jpg|Social Media design/Food Post4.jpg|social-media/Food Post4.jpg|public/social-media/food-post-chef-special.jpg',
+        title: "Chef's Signature Collection",
+        client: "Food's Forest (Restaurant)",
+        desc: "High-conversion social media post designed to showcase the chef's signature dishes with detailed ingredient retouching and premium aesthetic styling."
+      },
+      {
+        src: 'social-media/refresh-coffee.jpg',
+        fallbacks: 'Social%20Media%20design/refresh-coffee.jpg|Social Media design/refresh-coffee.jpg|social-media/refresh-coffee.jpg|Social%20Media%20design/refresh%20coffee.jpg|Social Media design/refresh coffee.jpg|social-media/refresh coffee.jpg|public/social-media/refresh-coffee.jpg',
+        title: "Refreshing Coffee & Artisan Brews",
+        client: "Food's Forest (Restaurant)",
+        desc: "Cozy and invigorating beverage promotional poster celebrating artisan coffee blends with warm earthy tones, steam accents, and sleek typography."
+      },
+      {
+        src: 'social-media/sandwich-combo.jpg',
+        fallbacks: 'Social%20Media%20design/sandwich-combo.jpg|Social Media design/sandwich-combo.jpg|social-media/sandwich-combo.jpg|Social%20Media%20design/Sandwich%20Combo.jpg|Social Media design/Sandwich Combo.jpg|social-media/Sandwich Combo.jpg|public/social-media/sandwich-combo.jpg',
+        title: "Premium Sandwich Combo Deal",
+        client: "Food's Forest (Restaurant)",
+        desc: "Action-driving promotional combo poster featuring sandwich and beverage pairings with prominent discount badging and bold commercial typography."
+      },
+      {
+        src: 'social-media/sandwich-club.jpg',
+        fallbacks: 'Social%20Media%20design/sandwich-club.jpg|Social Media design/sandwich-club.jpg|social-media/sandwich-club.jpg|Social%20Media%20design/sandwich.jpg|Social Media design/sandwich.jpg|social-media/sandwich.jpg|public/social-media/sandwich-club.jpg',
+        title: "Club Sandwich Special Delight",
+        client: "Food's Forest (Restaurant)",
+        desc: "Vibrant social media creative spotlighting the signature club sandwich, blending fresh garden colors, appetizing ingredient focus, and clean layout."
+      },
+      {
+        src: 'social-media/badal-mukhor-dine-khicuri-biriyani-fried-rice.jpg',
+        fallbacks: 'Social%20Media%20design/badal-mukhor-dine-khicuri-biriyani-fried-rice.jpg|Social Media design/badal-mukhor-dine-khicuri-biriyani-fried-rice.jpg|social-media/badal-mukhor-dine-khicuri-biriyani-fried-rice.jpg|Social%20Media%20design/badal-mukhor-dine-khicuri-biriyani-fried-rice.jpg|Social Media design/badal-mukhor-dine-khicuri-biriyani-fried-rice.jpg|social-media/badal-mukhor-dine-khicuri-biriyani-fried-rice.jpg|public/social-media/badal-mukhor-dine-khicuri-biriyani-fried-rice.jpg',
+        title: "Monsoon Special Khichuri & Biryani (বাদলমুখর দিনে)",
+        client: "Food's Forest (Restaurant)",
+        desc: "Traditional seasonal festive poster designed for monsoon cravings ('বাদলমুখর দিনে'), showcasing hot khichuri, biryani, and fried rice specials with culturally evocative typography."
+      }
+    ];
+
+    function openLightbox(idx) {
+      const item = portfolioGallery[idx];
+      if (!item) return;
+      const imgEl = document.getElementById('lightbox-img');
+      imgEl.src = item.src;
+      imgEl.setAttribute('data-fallbacks', item.fallbacks || '');
+      imgEl.setAttribute('data-try-count', '0');
+      imgEl.onerror = function () { handleImgFallback(this); };
+      document.getElementById('lightbox-client').textContent = item.client;
+      document.getElementById('lightbox-title').textContent = item.title;
+      document.getElementById('lightbox-desc').textContent = item.desc;
+      document.getElementById('lightbox-cta').href = 'mailto:shtanjin24@gmail.com?subject=' + encodeURIComponent('Commission Design similar to ' + item.title);
+      const modal = document.getElementById('image-lightbox');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      lucide.createIcons();
+    }
+
+    function closeLightbox() {
+      const modal = document.getElementById('image-lightbox');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    // 7. Cursor Follower
+    const cursorDot = document.getElementById('cursor-dot');
+    const cursorHalo = document.getElementById('cursor-halo');
+    window.addEventListener('mousemove', (e) => {
+      cursorDot.style.transform = `translate(${e.clientX - 4}px, ${e.clientY - 4}px)`;
+      cursorHalo.style.transform = `translate(${e.clientX - 16}px, ${e.clientY - 16}px)`;
+    });
+
+    // 8. Copy Email
+    function copyEmail() {
+      navigator.clipboard.writeText('shtanjin24@gmail.com');
+      const btnText = document.getElementById('copy-btn-text');
+      btnText.textContent = 'Copied!';
+      setTimeout(() => btnText.textContent = 'Copy Email', 2500);
+    }
+
+    // 9. Contact Form handling
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('form-name').value;
+      const email = document.getElementById('form-email').value;
+      const subject = document.getElementById('form-subject').value;
+      const message = document.getElementById('form-message').value;
+      const feedback = document.getElementById('form-feedback');
+
+      const mailSubject = encodeURIComponent(subject || `Inquiry from ${name}`);
+      const mailBody = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+
+      window.location.href = `mailto:shtanjin24@gmail.com?subject=${mailSubject}&body=${mailBody}`;
+
+      feedback.classList.remove('hidden');
+      feedback.textContent = 'Opening your email client to dispatch your message to shtanjin24@gmail.com...';
+    }
+
+    // 10. Live Clock
+    setInterval(() => {
+      const now = new Date();
+      document.getElementById('footer-time').textContent = 'UTC ' + now.toLocaleTimeString('en-US', { hour12: false });
+    }, 1000);
+  </script>
+</body>
+
+</html>
